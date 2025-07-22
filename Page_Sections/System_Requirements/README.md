@@ -1,1 +1,7 @@
-# aiDAPTIVTestPage
+# System Requirements
+
+## OS
+
+## GPU
+
+## Memory

@@ -1,1 +1,1 @@
-# aiDAPTIVTestPage
+# Installation Test

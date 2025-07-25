@@ -5,3 +5,8 @@
 </a>
   
 <a href="https://discord.gg/rJW6MS6m"><img src="https://github.com/atp224/aiDAPTIVTestPage/blob/main/assets/Discord_button.png?raw=true" width="165"></a>
+
+
+### Finetune and Inference bigger Llama, Falcon, Deepseek models by using SSD Offload!
+
+</div>

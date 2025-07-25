@@ -3,7 +3,7 @@
 <div align="center">
 
 <a href="https://www.phison.com/en/aidaptiv-plus-ai-data-storage-solution">
-  <img alt="aiDAPTIV+ logo" src="https://raw.githubusercontent.com/<username>/<repo>/main/assets/aiDAPTIV_logo.jpg" height="110" style="max-width: 100%;">
+  <img alt="aiDAPTIV+ logo" src="https://github.com/atp224/aiDAPTIVTestPage/blob/main/assets/aiDAPTIV_logo.jpg?raw=true" height="110" style="max-width: 100%;">
 </a>
   
 <a href="https://colab.research.google.com/github/unslothai/notebooks/blob/main/nb/Llama3.1_(8B)-Alpaca.ipynb"><img src="https://raw.githubusercontent.com/unslothai/unsloth/main/images/start free finetune button.png" width="154"></a>

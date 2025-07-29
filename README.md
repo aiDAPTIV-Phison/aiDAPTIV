@@ -29,12 +29,12 @@
 aiDAPTIVLink is distributed as part of the **aiDAPTIV+** offering.
 
 - **Commercial availability:** Included with purchases of **aiDAPTIVCache** (Phison’s NVMe caching solution) for workstations and servers.  
-- **Evaluation / pilots:** Reach out for a demo or short‑term evaluation license.
+- **Evaluation / pilots:** Reach out for a demo.
 - **Academic programs:** Universities and student clubs can inquire about our outreach program for on‑prem testing.
 
 **Get in touch**
-- 📩 **Sales/General**: `[add your sales/contact email or form link here]`
-- 🧪 **Evaluation request**: `[add demo request link here]`
+- 📩 **Sales/General**: `peter_cmaylo@phison.com`
+- 🧪 **Evaluation request**: `chris_ramseyer@phison.com`
 - 🎓 **University outreach**: `aaron_pham@phison.com`
 
 > After you receive access, follow the repo’s **Installation** and **Quickstart** sections to integrate aiDAPTIVLink into your training or inference workflow.

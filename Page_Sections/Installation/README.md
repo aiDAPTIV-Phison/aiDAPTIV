@@ -145,8 +145,6 @@ bash setup_vNXUN_2_03_00.sh
 - Select option `3. FW Update`
 - Add the NVMe device(s) to update
 - Confirm and proceed with update
-```
-
 
 ---
 

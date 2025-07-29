@@ -10,3 +10,31 @@
 ### Finetune and Inference bigger Llama, Falcon, Deepseek models by using SSD Offload!
 
 </div>
+
+## What is aiDAPTIVLink?
+
+**aiDAPTIVLink** is Phison’s middleware layer in the **aiDAPTIV+** stack that lets you train and run larger language models on your own hardware by leveraging high‑performance SSD caching alongside your GPU VRAM. In practice, it minimizes “out‑of‑memory” barriers for fine‑tuning and keeps I/O efficient during inference.
+
+**Key capabilities**
+- **Scale beyond VRAM limits:** Use fast NVMe storage as an extension to GPU memory so you can work with bigger models or longer context windows on the same hardware.
+- **On‑prem by design:** Keep data local to your workstation, server, or lab cluster—no cloud dependency.
+- **Minimal code changes:** Designed to drop into existing PyTorch workflows with little or no refactoring.
+- **Lower time‑to‑first‑token (TTFT) at inference:** Storage‑aware scheduling reduces cold‑start stalls so responses begin faster.  
+  > Note: aiDAPTIV+ removes memory bottlenecks for training, but it is **not** intended to speed up the core math of fine‑tuning itself.
+
+---
+
+## How to obtain
+
+aiDAPTIVLink is distributed as part of the **aiDAPTIV+** offering.
+
+- **Commercial availability:** Included with purchases of **aiDAPTIVCache** (Phison’s NVMe caching solution) for workstations and servers.  
+- **Evaluation / pilots:** Reach out for a demo or short‑term evaluation license.
+- **Academic programs:** Universities and student clubs can inquire about our outreach program for on‑prem testing.
+
+**Get in touch**
+- 📩 **Sales/General**: `[add your sales/contact email or form link here]`
+- 🧪 **Evaluation request**: `[add demo request link here]`
+- 🎓 **University outreach**: `aaron_pham@phison.com`
+
+> After you receive access, follow the repo’s **Installation** and **Quickstart** sections to integrate aiDAPTIVLink into your training or inference workflow.

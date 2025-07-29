@@ -17,7 +17,7 @@
 
 **Key capabilities**
 - **Scale beyond VRAM limits:** Use fast NVMe storage as an extension to GPU memory so you can work with bigger models or longer context windows on the same hardware.
-- **On‑prem by design:** Keep data local to your workstation, server, or lab cluster—no cloud dependency.
+- **On‑prem by design:** Keep data local to your workstation, server, or lab cluster, no cloud dependency.
 - **Minimal code changes:** Designed to drop into existing PyTorch workflows with little or no refactoring.
 - **Lower time‑to‑first‑token (TTFT) at inference:** Storage‑aware scheduling reduces cold‑start stalls so responses begin faster.  
   > Note: aiDAPTIV+ removes memory bottlenecks for training, but it is **not** intended to speed up the core math of fine‑tuning itself.

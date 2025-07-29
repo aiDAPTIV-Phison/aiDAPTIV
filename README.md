@@ -97,6 +97,9 @@ aiDAPTIVLink requires the use of an **aiDAPTIVCache** SSD for storage-accelerate
 ---
 
 For full installation steps, supported OS details, and performance tuning, see the [Installation Guide](#).
+
+---
+
 **Get in touch**
 - 📩 **Sales/General**: `peter_cmaylo@phison.com`
 - 🧪 **Evaluation request**: `chris_ramseyer@phison.com`

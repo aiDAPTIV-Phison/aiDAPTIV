@@ -32,6 +32,71 @@ aiDAPTIVLink is distributed as part of the **aiDAPTIV+** offering.
 - **Evaluation / pilots:** Reach out for a demo.
 - **Academic programs:** Universities and student clubs can inquire about our outreach program for on‑prem testing.
 
+---
+
+## System Requirements
+
+To ensure optimal performance and compatibility, aiDAPTIVLink requires the following hardware components:
+
+### ✅ Compatible GPUs
+
+aiDAPTIVLink is validated with the following NVIDIA GPUs (PCIe 4.0 x16):
+
+| Vendor  | Product Name                        | Memory Type | Capacity  | Bus Width |
+|---------|-------------------------------------|-------------|-----------|-----------|
+| NVIDIA  | H200                                | HBM2e       | 80 GB     | 5120-bit  |
+| NVIDIA  | H100                                | HBM2e       | 80 GB     | 5120-bit  |
+| NVIDIA  | RTX A6000                           | GDDR6       | 48 GB     | 384-bit   |
+| NVIDIA  | RTX A5000                           | GDDR6       | 24 GB     | 384-bit   |
+| NVIDIA  | GeForce RTX 4090                    | GDDR6X      | 24 GB     | 384-bit   |
+| NVIDIA  | GeForce RTX 4090 D                  | GDDR6X      | 24 GB     | 384-bit   |
+| NVIDIA  | L40                                  | GDDR6       | 48 GB     | 384-bit   |
+| NVIDIA  | L40S                                 | GDDR6       | 48 GB     | 384-bit   |
+| NVIDIA  | RTX 6000 Ada Generation             | GDDR6       | 48 GB     | 384-bit   |
+| NVIDIA  | RTX 5000 Ada Generation             | GDDR6       | 32 GB     | 256-bit   |
+| NVIDIA  | RTX 4000 Ada Generation             | GDDR6       | 20 GB     | 160-bit   |
+| NVIDIA  | RTX 4000 SFF Ada Generation         | GDDR6       | 20 GB     | 160-bit   |
+
+> *Note: PCIe Gen 4 x16 bandwidth is recommended for optimal I/O throughput.*
+
+---
+
+### ✅ Compatible CPUs
+
+aiDAPTIVLink has been tested with the following high-performance processors:
+
+| Brand | Model                        | Sockets | Cores | Base Clock (GHz) | PCIe Lanes |
+|-------|------------------------------|---------|-------|------------------|------------|
+| Intel | Xeon Gold 5320               | Dual    | 26    | 2.2              | 64         |
+| Intel | Xeon Gold 6330               | Dual    | 28    | 2.0              | 64         |
+| Intel | Xeon w5-3425                 | Single  | 12    | 3.2              | 112        |
+| Intel | Xeon Gold 6538Y+             | Dual    | 32    | 2.2              | 80         |
+| Intel | Xeon Silver 4410T            | Dual    | 10    | 2.7              | 80         |
+| Intel | Xeon Silver 4410Y            | Dual    | 8     | 2.0              | 80         |
+| Intel | Xeon Silver 5315Y            | Dual    | 8     | 3.2              | 64         |
+| Intel | Core i9-13900                | Single  | 24    | 1.5 (base)       | 20         |
+| Intel | Core i9-12900E               | Single  | 16    | 1.7 (base)       | 20         |
+| AMD   | Ryzen Threadripper 7980X     | Single  | 64    | 5.1              | 92         |
+| AMD   | EPYC 7713P                   | Single  | 64    | 2.0              | 128        |
+| AMD   | EPYC 9174F                   | Single  | 16    | 4.1              | 128        |
+
+> *We recommend CPUs with high PCIe lane counts to support simultaneous GPU and SSD throughput.*
+
+---
+
+### ✅ Compatible aiDAPTIV+ Caching Device
+
+aiDAPTIVLink requires the use of an **aiDAPTIVCache** SSD for storage-accelerated training and inference.
+
+| Model     | Form Factor | Interface | Notes                         |
+|-----------|-------------|-----------|-------------------------------|
+| AI100E    | U.2 or M.2  | PCIe 4.0  | Required for aiDAPTIVLink use |
+
+> *Ensure the AI100E SSD is properly installed in a PCIe Gen 4 compatible slot for peak performance.*
+
+---
+
+For full installation steps, supported OS details, and performance tuning, see the [Installation Guide](#).
 **Get in touch**
 - 📩 **Sales/General**: `peter_cmaylo@phison.com`
 - 🧪 **Evaluation request**: `chris_ramseyer@phison.com`

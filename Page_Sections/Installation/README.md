@@ -148,63 +148,80 @@ bash setup_vNXUN_2_03_00.sh
 
 ---
 ## 🐳 Docker Installation (Alternative Setup)
-If you prefer to install aiDAPTIVLink in an isolated container environment, you can use the Docker method instead of native installation.
 
-🔧 Step 1: Install Docker and NVIDIA Container Toolkit
-Install Docker Engine (Ubuntu)
+> If you prefer to install aiDAPTIVLink in an isolated container environment, you can use the Docker method instead of native installation.
 
-Install NVIDIA Container Toolkit
+---
+
+### ✅ Install Docker and NVIDIA Container Toolkit
+
+- [Install Docker Engine (Ubuntu)](https://docs.docker.com/engine/install/ubuntu/)
+- [Install NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
 
 After installation, restart Docker:
 
-bash
-Copy
-Edit
+```bash
 sudo systemctl restart docker
-📦 Step 2: Download and Load Docker Image
-bash
-Copy
-Edit
+```
+
+---
+
+### 📦 Download and Load Docker Image
+
+```bash
 wget https://phisonbucket.s3.ap-northeast-1.amazonaws.com/aiDAPTIV_vNXUN_2_03_00.tar.gz
 docker load < aiDAPTIV_vNXUN_2_03_00.tar.gz
+```
+
 Confirm the image was loaded:
 
-bash
-Copy
-Edit
+```bash
 docker image list
-You should see an entry like:
-aidaptiv:vNXUN_2_03_00
+```
 
-📁 Step 3: Locate Config and Commands
-The image will create a folder at:
+> You should see: `aidaptiv:vNXUN_2_03_00`
 
-bash
-Copy
-Edit
+---
+
+### 📁 Locate Config and Command Files
+
+After loading the Docker image, a folder will be created at:
+
+```bash
 /home/root/aiDAPTIV2/commands
-This folder includes example scripts and YAML files to configure your environment:
+```
 
-Copy
-Edit
+This folder includes the following structure:
+
+```
 commands/
 ├── env_config/
 │   └── env_config.yaml
 ├── exp_config/
 │   └── exp_config.yaml
 └── example.sh
-You can modify these files to match your project’s training parameters.
+```
 
-🚀 Step 4: Run the Docker Container
-bash
-Copy
-Edit
+> You can modify these files to match your training project parameters.
+
+---
+
+### 🚀 Run the Docker Container
+
+```bash
 docker run --gpus all -it --ipc=host --privileged=true --ulimit memlock=-1 \
 --ulimit stack=67108864 -v </path/to/model>:/app -v </path/to/LVM>:/mnt \
 -v /dev/mapper:/dev/mapper -v /var/lock:/var/lock aidaptiv:vNXUN_2_03_00
-Replace </path/to/model> and </path/to/LVM> with the actual local paths to your model and LVM mount directory.
+```
 
-✅ You do not need to run this step if you're using the native install method above.
+Replace:
+
+- `</path/to/model>` with the path to your model directory  
+- `</path/to/LVM>` with your mounted LVM volume (e.g., `/mnt/nvme0`)
+
+> ✅ You do **not** need to run this if you're using the native install method above.
+
+---
 
 ---
 

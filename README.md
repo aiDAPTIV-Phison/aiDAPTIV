@@ -101,13 +101,12 @@ aiDAPTIVLink requires the use of an **aiDAPTIVCache** SSD for storage-accelerate
 
 ---
 
-For full installation steps, supported OS details, and performance tuning, see the [User Manual](https://github.com/atp224/aiDAPTIVTestPage/blob/9f4e564a1e0063a140170a4dcb12db197cd9235f/assets/user_manual.pdf).
-
----
-
 **Get in touch**
 - 📩 **Sales/General**: `peter_cmaylo@phison.com`
 - 🧪 **Evaluation request**: `chris_ramseyer@phison.com`
 - 🎓 **University outreach**: `aaron_pham@phison.com`
 
 > After you receive access, follow the repo’s [Installation](https://github.com/atp224/aiDAPTIVTestPage/tree/f208f0fc7650f9ed36942aff18a351ff37f1a0e8/Page_Sections/Installation) section to integrate aiDAPTIVLink into your training or inference workflow.
+
+For full installation steps, supported OS details, and performance tuning, see the [User Manual](https://github.com/atp224/aiDAPTIVTestPage/blob/9f4e564a1e0063a140170a4dcb12db197cd9235f/assets/user_manual.pdf).
+

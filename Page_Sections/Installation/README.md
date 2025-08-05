@@ -147,5 +147,65 @@ bash setup_vNXUN_2_03_00.sh
 - Confirm and proceed with update
 
 ---
+## 🐳 Docker Installation (Alternative Setup)
+If you prefer to install aiDAPTIVLink in an isolated container environment, you can use the Docker method instead of native installation.
+
+🔧 Step 1: Install Docker and NVIDIA Container Toolkit
+Install Docker Engine (Ubuntu)
+
+Install NVIDIA Container Toolkit
+
+After installation, restart Docker:
+
+bash
+Copy
+Edit
+sudo systemctl restart docker
+📦 Step 2: Download and Load Docker Image
+bash
+Copy
+Edit
+wget https://phisonbucket.s3.ap-northeast-1.amazonaws.com/aiDAPTIV_vNXUN_2_03_00.tar.gz
+docker load < aiDAPTIV_vNXUN_2_03_00.tar.gz
+Confirm the image was loaded:
+
+bash
+Copy
+Edit
+docker image list
+You should see an entry like:
+aidaptiv:vNXUN_2_03_00
+
+📁 Step 3: Locate Config and Commands
+The image will create a folder at:
+
+bash
+Copy
+Edit
+/home/root/aiDAPTIV2/commands
+This folder includes example scripts and YAML files to configure your environment:
+
+Copy
+Edit
+commands/
+├── env_config/
+│   └── env_config.yaml
+├── exp_config/
+│   └── exp_config.yaml
+└── example.sh
+You can modify these files to match your project’s training parameters.
+
+🚀 Step 4: Run the Docker Container
+bash
+Copy
+Edit
+docker run --gpus all -it --ipc=host --privileged=true --ulimit memlock=-1 \
+--ulimit stack=67108864 -v </path/to/model>:/app -v </path/to/LVM>:/mnt \
+-v /dev/mapper:/dev/mapper -v /var/lock:/var/lock aidaptiv:vNXUN_2_03_00
+Replace </path/to/model> and </path/to/LVM> with the actual local paths to your model and LVM mount directory.
+
+✅ You do not need to run this step if you're using the native install method above.
+
+---
 
 ## Installation Test

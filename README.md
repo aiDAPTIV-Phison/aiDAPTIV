@@ -36,6 +36,8 @@ aiDAPTIVLink is distributed as part of the **aiDAPTIV+** offering.
 - **Academic programs:** Universities and student clubs can inquire about our outreach program for on‑prem testing.
 
 ---
+**Information on how to Install aiDAPTIVLink is found [here](https://github.com/atp224/aiDAPTIVTestPage/tree/f208f0fc7650f9ed36942aff18a351ff37f1a0e8/Page_Sections/Installation)!
+---
 
 ## System Requirements
 
@@ -108,4 +110,4 @@ For full installation steps, supported OS details, and performance tuning, see t
 - 🧪 **Evaluation request**: `chris_ramseyer@phison.com`
 - 🎓 **University outreach**: `aaron_pham@phison.com`
 
-> After you receive access, follow the repo’s [Installation](For full installation steps, supported OS details, and performance tuning, see the [Installation](https://github.com/atp224/aiDAPTIVTestPage/tree/f208f0fc7650f9ed36942aff18a351ff37f1a0e8/Page_Sections/Installation) section to integrate aiDAPTIVLink into your training or inference workflow.
+> After you receive access, follow the repo’s [Installation](https://github.com/atp224/aiDAPTIVTestPage/tree/f208f0fc7650f9ed36942aff18a351ff37f1a0e8/Page_Sections/Installation) section to integrate aiDAPTIVLink into your training or inference workflow.

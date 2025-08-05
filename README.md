@@ -36,7 +36,7 @@ aiDAPTIVLink is distributed as part of the **aiDAPTIV+** offering.
 - **Academic programs:** Universities and student clubs can inquire about our outreach program for on‑prem testing.
 
 ---
-**Information on how to Install aiDAPTIVLink is found [here](https://github.com/atp224/aiDAPTIVTestPage/tree/f208f0fc7650f9ed36942aff18a351ff37f1a0e8/Page_Sections/Installation)!
+**Information on how to install aiDAPTIVLink is found [here](https://github.com/atp224/aiDAPTIVTestPage/tree/f208f0fc7650f9ed36942aff18a351ff37f1a0e8/Page_Sections/Installation)!**
 ---
 
 ## System Requirements

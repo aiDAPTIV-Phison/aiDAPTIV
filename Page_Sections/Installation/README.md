@@ -226,4 +226,93 @@ Replace:
 
 ---
 
-## Installation Test
+## 🧪 Installation Test
+
+After completing the installation (native or Docker), you can run the following checks to confirm the setup was successful.
+
+---
+
+### ✅ System-Level Checks
+
+Verify that your GPU, CUDA, and cuDNN are all correctly installed:
+
+```bash
+nvidia-smi
+nvcc --version
+```
+
+Expected:
+- `nvidia-smi` should show your GPU and driver version.
+- `nvcc` should show CUDA 12.4.
+
+Check cuDNN version:
+
+```bash
+cat /usr/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+```
+
+Expected:
+- Output includes `#define CUDNN_MAJOR 9`
+
+---
+
+### ✅ aiDAPTIV Directory Check
+
+```bash
+ls ~/Desktop/aiDAPTIV2/
+```
+
+Expected:
+- You should see files and folders such as `commands/`, `env_config/`, etc.
+
+---
+
+### ✅ Docker Image Check (if using Docker)
+
+```bash
+docker image list | grep aidaptiv
+```
+
+Expected:
+- `aidaptiv:vNXUN_2_03_00` appears in the list
+
+---
+
+### ✅ Node.js/NPM (Optional UI or CLI Tool)
+
+If your setup includes a Node.js-based management tool (for launching, logging, or interacting with aiDAPTIV), run:
+
+```bash
+node -v
+npm -v
+```
+
+Then inside the aiDAPTIV UI folder (if applicable):
+
+```bash
+npm install
+npm run test
+```
+
+Expected:
+- No errors from `npm install`
+- Test output showing success or passed checks
+
+> If `npm run test` doesn't exist, consider using `npm run lint`, `npm run dev`, or `npx vitest` depending on your tooling.
+
+---
+
+### ✅ LVM Mount Check
+
+Make sure the LVM volume is mounted:
+
+```bash
+df -h | grep /mnt/nvme0
+```
+
+Expected:
+- A mounted device entry for `/mnt/nvme0`
+
+---
+
+✅ If all tests pass, aiDAPTIVLink is ready for training or inference!

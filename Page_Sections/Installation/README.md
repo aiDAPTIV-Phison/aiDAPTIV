@@ -58,7 +58,8 @@ sudo apt-get -y install cudnn-cuda-12
 ### 4️⃣ Install aiDAPTIVLink
 
 > ⚠️ Recommended: Use a fresh Ubuntu system.  
-> Alternatively, see [Docker Install (Appendix D)](#) for isolated setup.
+> Alternatively, see [🐳 Docker Installation](#-docker-installation-alternative-setup) for isolated setup.
+
 
 ```bash
 wget https://phisonbucket.s3.ap-northeast-1.amazonaws.com/setup_vNXUN_2_03_00.sh

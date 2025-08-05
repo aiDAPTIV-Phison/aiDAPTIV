@@ -99,7 +99,7 @@ aiDAPTIVLink requires the use of an **aiDAPTIVCache** SSD for storage-accelerate
 
 ---
 
-For full installation steps, supported OS details, and performance tuning, see the [Installation Guide](#).
+For full installation steps, supported OS details, and performance tuning, see the [Installation Guide](https://github.com/atp224/aiDAPTIVTestPage/tree/f208f0fc7650f9ed36942aff18a351ff37f1a0e8/Page_Sections/Installation).
 
 ---
 

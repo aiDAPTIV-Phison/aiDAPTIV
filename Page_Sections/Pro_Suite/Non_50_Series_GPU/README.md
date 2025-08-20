@@ -148,8 +148,6 @@ The log includes system info, hardware details, NVIDIA version, Pro Suite contai
 
 ---
 
----
-
 ## 🛠️ Pro Suite Maintenance & Management
 
 Once Pro Suite is installed, you can manage it directly through the installer’s numbered menu options:

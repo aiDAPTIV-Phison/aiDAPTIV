@@ -1,6 +1,6 @@
 # Installation (For NVIDIA 50‑Series GPUs)
 
-This README explains how to install **aiDAPTIV+ Pro Suite 2.0** for NVIDIA 50‑series GPUs (5060Ti, 5070Ti, 5080). It follows the same format as your previous README.
+This README explains how to install **aiDAPTIV+ Pro Suite 2.0** for NVIDIA 50‑series GPUs (5060Ti, 5070Ti, 5080).
 
 ---
 

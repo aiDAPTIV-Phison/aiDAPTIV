@@ -1,6 +1,6 @@
 # Installation
 
-This README explains how to install **aiDAPTIV+ Pro Suite 2.0** using the official installation guide. It follows the same structured style as your aiDAPTIVLink README.
+This README explains how to install **aiDAPTIV+ Pro Suite 2.0** using the official installation guide.
 
 ---
 

@@ -54,25 +54,4 @@ With aiDAPTIV+ Pro Suite, you can complete the **entire fine-tuning workflow wit
 
 This no-code workflow makes advanced model customization accessible for **researchers, developers, and enterprise teams**.
 
----
-
-## ⚡ Important Pre-Install Notes
-
-- Disable automatic Ubuntu updates since they can cause driver/kernel mismatches.  
-- Verify your GPU and OS version match the guide you follow.  
-- Ensure required ports (8899, 8799, 3019, 5432, 9400, etc.) are open.  
-- Always check GPU driver install success with `nvidia-smi`.
-
----
-
-## ✅ Post-Install Quick Test
-
-Once installation completes:
-
-```bash
-nvidia-smi              # Verify NVIDIA driver + CUDA
-sudo systemctl status prosuite   # Check Pro Suite service status
-```
----
-
 

@@ -216,3 +216,29 @@ sudo systemctl restart docker
 * Kernel version is ≥6.8 and GCC is 12.3.
 * Pro Suite installation completes and Web UI URL is displayed.
 * Services run without errors after Docker restart if required.
+
+---
+
+## 🛠️ Pro Suite Maintenance & Management
+
+Once Pro Suite is installed, you can manage it directly through the installer’s numbered menu options:
+
+- **6 – Uninstall Pro Suite**  
+  Removes LVM RAID0, Docker images, and Pro Suite data (with confirmation prompts).  
+- **2 – Upgrade Pro Suite**  
+  Updates all services to the latest supported version (NXUN_2.0.X only).  
+- **1 – Check Status**  
+  Shows the status of Pro Suite containers and services.  
+- **3 – Start Service**  
+  Starts all Pro Suite services if they are stopped.  
+- **4 – Stop Service**  
+  Stops all running Pro Suite services.  
+- **5 – Restart Service**  
+  Restarts Pro Suite, useful for resolving abnormal issues.  
+- **7 – Download Models**  
+  Lets you pull and install supported LLMs directly from Pro Suite.  
+- **8 – Debug Mode**  
+  Advanced troubleshooting: restart a service, refresh/pull Docker images, clear cache, recreate LVM, or update embedded models.
+
+💡 *Tip: Restarting (option 5) often resolves common issues without requiring a full reinstall.*
+

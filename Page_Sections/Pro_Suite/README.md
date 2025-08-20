@@ -1,6 +1,6 @@
 # aiDAPTIV+ Pro Suite 2.0
 
-The **aiDAPTIV+ Pro Suite** is a no-code, full-stack workflow platform that makes it easy to manage every stage of your local LLM projects — from dataset preparation to deployment.
+The **aiDAPTIV+ Pro Suite** is a no-code, full-stack workflow platform that makes it easy to manage every stage of your local LLM projects from dataset preparation to deployment.
 
 With Pro Suite, you can:
 - Generate training datasets from PDFs or plain text.
@@ -15,7 +15,7 @@ With Pro Suite, you can:
 
 Choose the guide that matches your GPU and OS setup:
 
-- [Installation Guide](https://github.com/atp224/aiDAPTIVTestPage/tree/bb33c8e330bbbeed3822f4274995a0e9618d4dfc/Page_Sections/Pro_Suite/Non_50_Series_GPU)   – [Compatible GPUs](https://github.com/atp224/aiDAPTIVTestPage?tab=readme-ov-file#-compatible-gpus) (Ubuntu 24.04)
+- [Installation Guide](https://github.com/atp224/aiDAPTIVTestPage/tree/bb33c8e330bbbeed3822f4274995a0e9618d4dfc/Page_Sections/Pro_Suite/Non_50_Series_GPU) – [Compatible GPUs](https://github.com/atp224/aiDAPTIVTestPage?tab=readme-ov-file#-compatible-gpus) (Ubuntu 24.04)
 - [Installation Guide](https://github.com/atp224/aiDAPTIVTestPage/tree/bb33c8e330bbbeed3822f4274995a0e9618d4dfc/Page_Sections/Pro_Suite/50_Series_GPU) – NVIDIA 50-Series GPUs (Ubuntu 22.04)
 
 
@@ -58,7 +58,7 @@ This no-code workflow makes advanced model customization accessible for **resear
 
 ## ⚡ Important Pre-Install Notes
 
-- Disable automatic Ubuntu updates — they can cause driver/kernel mismatches.  
+- Disable automatic Ubuntu updates since they can cause driver/kernel mismatches.  
 - Verify your GPU and OS version match the guide you follow.  
 - Ensure required ports (8899, 8799, 3019, 5432, 9400, etc.) are open.  
 - Always check GPU driver install success with `nvidia-smi`.
@@ -72,3 +72,7 @@ Once installation completes:
 ```bash
 nvidia-smi              # Verify NVIDIA driver + CUDA
 sudo systemctl status prosuite   # Check Pro Suite service status
+```
+---
+
+

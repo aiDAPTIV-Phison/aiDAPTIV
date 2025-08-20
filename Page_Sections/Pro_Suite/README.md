@@ -15,8 +15,8 @@ With Pro Suite, you can:
 
 Choose the guide that matches your GPU and OS setup:
 
-- [Installation Guide – Ubuntu 24.04 / General GPUs](./Install_Ubuntu24.04/README.md)  
-- [Installation Guide – NVIDIA 50-Series GPUs (Ubuntu 22.04)](./Install_50Series/README.md)
+- [Installation Guide – [Compatible GPUs](https://github.com/atp224/aiDAPTIVTestPage?tab=readme-ov-file#-compatible-gpus) Ubuntu 24.04](https://github.com/atp224/aiDAPTIVTestPage/tree/bb33c8e330bbbeed3822f4274995a0e9618d4dfc/Page_Sections/Pro_Suite/Non_50_Series_GPU)  
+- [Installation Guide – NVIDIA 50-Series GPUs (Ubuntu 22.04)](https://github.com/atp224/aiDAPTIVTestPage/tree/bb33c8e330bbbeed3822f4274995a0e9618d4dfc/Page_Sections/Pro_Suite/50_Series_GPU)
 
 ---
 

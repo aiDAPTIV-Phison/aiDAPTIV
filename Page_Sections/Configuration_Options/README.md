@@ -26,7 +26,7 @@ These files must follow the expected format for smooth operation.
   question_key: [q1, q2, q3]
   answer_key: [a1, a2, a3]
   ```
-  
+---
 
 ## Command Line Options
 

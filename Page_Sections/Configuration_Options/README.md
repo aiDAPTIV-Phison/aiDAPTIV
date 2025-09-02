@@ -197,5 +197,5 @@ Your CPU and motherboard must provide at least **72 PCIe lanes** for optimal per
 - **Performance Scaling** – Supports larger batch sizes and stable training throughput for big models.  
 - **Balanced Architecture** – Cache must be paired with sufficient DRAM, GPU power, and PCIe bandwidth; an imbalance can lead to bottlenecks or training failures.  
 
-✅ **Bottom line:** aiDAPTIVCache is not optional — it **defines the maximum model size and efficiency** your system can realistically handle.
+✅ **Bottom line:** aiDAPTIVCache is not optional, it **defines the maximum model size and efficiency** your system can realistically handle.
 

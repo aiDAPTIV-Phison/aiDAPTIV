@@ -3,7 +3,8 @@ In the source code’s utils/data/data_utils.py, the get_raw_dataset function li
 We have tested Dahoas/rm-static (https://huggingface.co/datasets/Dahoas/rm-static).
 
 ------------------------------
-Note: This example is too generic and refers to “source code” that the user may not have access to.
+DG Note:
+This example is too generic and refers to “source code” that the user may not have access to.
 
 For this section we need to see information on what datasets and dataset configurations that aiDAPTIV Link supports.
 

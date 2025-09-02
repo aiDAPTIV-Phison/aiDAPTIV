@@ -153,6 +153,7 @@ question_key: [q1, q2, q3] and answer_key: [a1, a2, a3].
 ```
 Note: Multimodal datasets must include an image_key (or equivalent) that points to the image data source.
 Supported formats: .json or .csv with references to image files.
+
 ---
 
 ## Importance of the Cache

@@ -101,6 +101,27 @@ aiDAPTIVLink requires the use of an **aiDAPTIVCache** SSD for storage-accelerate
 
 ---
 
+## Where to Buy
+
+aiDAPTIV+ products are available through regional distributors.  
+Select your country or territory below to view purchase options.
+
+### 🇺🇸 United States
+
+- [AI Training PC](https://www.neweggbusiness.com/product/product.aspx?item=9b-83-367-001&tpk=9b-83-367-001)  
+- [AI Workstation](https://www.neweggbusiness.com/product/product.aspx?item=9b-83-367-003&tpk=9b-83-367-003)  
+- [AI100E 320 GB M.2](https://www.neweggbusiness.com/product/product.aspx?item=9b-20-979-149&tpk=9b-20-979-149)  
+- [AI100E 1 TB M.2](https://www.neweggbusiness.com/product/product.aspx?item=9b-20-979-047&tpk=9b-20-979-047)  
+- [AI100E 2 TB M.2](https://www.neweggbusiness.com/product/product.aspx?item=9b-20-979-049&tpk=9b-20-979-049)  
+- [AI100E 1 TB U.2](https://www.neweggbusiness.com/product/product.aspx?item=9b-20-979-051&tpk=9b-20-979-051)  
+- [AI100E 2 TB U.2](https://www.neweggbusiness.com/product/product.aspx?item=9b-20-979-054&tpk=9b-20-979-054)  
+
+### 🌏 Asia Pacific
+
+- HQ Fill out 
+
+---
+
 **Get in touch**
 - 📩 **Sales/General**: `peter_cmaylo@phison.com`
 - 🧪 **Evaluation request**: `chris_ramseyer@phison.com`

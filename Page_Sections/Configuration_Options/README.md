@@ -39,14 +39,12 @@ These commands interact with the YAML configs you define.
 
 ```bash
 python3 aidaptest_run.py --t 1
-Type values:
 ```
 
---t 1 → Test performance
-
---t 2 → Find max batch size
-
---t 3 → Find max batch size + test performance
+**Type values:**  
+- `--t 1` → Test performance  
+- `--t 2` → Find max batch size  
+- `--t 3` → Find max batch size + test performance
 
 ### Docker Run Example
 

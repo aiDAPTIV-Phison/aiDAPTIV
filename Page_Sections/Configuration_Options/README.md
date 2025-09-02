@@ -163,7 +163,7 @@ It provides **high-endurance SSD storage that acts as extended GPU memory (VRAM)
 
 ---
 
-#### Model Size Requirements
+### Model Size Requirements
 The amount of DRAM and aiDAPTIVCache needed scales with the size of the LLM:
 
 | LLM Model Size | DRAM Requirement | aiDAPTIVCache Capacity | aiDAPTIVCache Count |
@@ -180,7 +180,7 @@ The amount of DRAM and aiDAPTIVCache needed scales with the size of the LLM:
 
 ---
 
-#### PCIe Lane Planning
+### PCIe Lane Planning
 CPU PCIe lanes must support both GPUs and aiDAPTIVCache devices:
 
 **Total PCIe lanes = (GPU count × 16) + (aiDAPTIVCache count × 4)**
@@ -192,7 +192,7 @@ Your CPU and motherboard must provide at least **72 PCIe lanes** for optimal per
 
 ---
 
-#### Why aiDAPTIVCache Matters
+### Why aiDAPTIVCache Matters
 - **VRAM Extension** – Provides additional memory capacity beyond GPU VRAM by leveraging high-endurance SSDs.  
 - **Performance Scaling** – Supports larger batch sizes and stable training throughput for big models.  
 - **Balanced Architecture** – Cache must be paired with sufficient DRAM, GPU power, and PCIe bandwidth; an imbalance can lead to bottlenecks or training failures.  

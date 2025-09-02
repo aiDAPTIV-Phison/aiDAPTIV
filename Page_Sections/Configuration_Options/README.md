@@ -67,6 +67,7 @@ These options are typically set in the `project.ini` or YAML files and passed au
 
 > ⚡ Advanced parameters like **learning rate**, **optimizer settings**, and **LoRA rank** are also YAML-configurable and do not need to be passed manually at the CLI.
 
+---
 
 ## Dataset Considerations
 

@@ -154,7 +154,7 @@ Note: Multimodal datasets must include an image_key (or equivalent) that points 
 Supported formats: .json or .csv with references to image files.
 ---
 
-### Importance of the Cache
+## Importance of the Cache
 
 aiDAPTIVCache is a **core requirement** for scaling LLM training and inference with aiDAPTIVLink.  
 It provides **high-endurance SSD storage that acts as extended GPU memory (VRAM)**, enabling larger models to run efficiently even when GPU VRAM is limited.

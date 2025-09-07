@@ -23,6 +23,6 @@ To start this section out I want to see at least four+ configuration examples (o
 1)	Llama 3.1 8B SFT (Single GPU)
 2)	Llama 3.1 70B SFT (4x GPU)
 3)	Falcon 180B SFT (Single GPU)  - This example can be ANY large LLM on a single GPU,  the intention is to show that with aiDAPTIVLink the user can train extremely large models that often cannot run on the system doing the training.
-4)	Any QLORA training example
+4)	Any LORA/QLORA training example
 5)	Include any other popular LLMs and their system config.  We are not concerned with Inference or quantization, 
 

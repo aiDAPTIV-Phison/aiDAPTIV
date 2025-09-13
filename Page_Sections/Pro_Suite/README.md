@@ -15,8 +15,8 @@ With Pro Suite, you can:
 
 Choose the guide that matches your GPU and OS setup:
 
-- [Installation Guide](50_Series_GPU/README.md) – [Compatible GPUs](../../README.md#-compatible-gpus) (Ubuntu 24.04)
-- [Installation Guide](Non_50_Series_GPU/README.md) – NVIDIA 50-Series GPUs (Ubuntu 22.04)
+- [Installation Guide](Non_50_Series_GPU/README.md) – [Compatible GPUs](../../README.md#-compatible-gpus) (Ubuntu 24.04)
+- [Installation Guide](50_Series_GPU/README.md) – NVIDIA 50-Series GPUs (Ubuntu 22.04)
 
 
 ---

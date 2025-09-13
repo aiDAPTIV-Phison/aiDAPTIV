@@ -15,8 +15,8 @@ With Pro Suite, you can:
 
 Choose the guide that matches your GPU and OS setup:
 
-- [Installation Guide](https://github.com/atp224/aiDAPTIVTestPage/blob/main/Page_Sections/Pro_Suite/50_Series_GPU/README.md) – [Compatible GPUs](https://github.com/atp224/aiDAPTIVTestPage?tab=readme-ov-file#-compatible-gpus) (Ubuntu 24.04)
-- [Installation Guide](https://github.com/atp224/aiDAPTIVTestPage/blob/main/Page_Sections/Pro_Suite/Non_50_Series_GPU/README.md) – NVIDIA 50-Series GPUs (Ubuntu 22.04)
+- [Installation Guide](50_Series_GPU/README.md) – [Compatible GPUs](../../README.md#-compatible-gpus) (Ubuntu 24.04)
+- [Installation Guide](Non_50_Series_GPU/README.md) – NVIDIA 50-Series GPUs (Ubuntu 22.04)
 
 
 ---

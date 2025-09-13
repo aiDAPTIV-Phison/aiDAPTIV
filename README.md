@@ -32,7 +32,7 @@
 aiDAPTIVLink is distributed as part of the **aiDAPTIV+** offering.
 
 - **Commercial availability:** Included with purchases of **aiDAPTIVCache** (Phison’s NVMe caching solution) for workstations and servers.  
-- **Evaluation / pilots:** Reach out for a demo.
+- **Evaluation / pilots:** Reach out for a free trial of aiDAPTIV+.
 - **Academic programs:** Universities and student clubs can inquire about our outreach program for on‑prem testing.
 
 ---
@@ -125,7 +125,7 @@ Please contact your **local Phison partners** for aiDAPTIV+ inquiries in regions
 
 **Get in touch**
 - 📩 **Sales/General**: `peter_cmaylo@phison.com`
-- 🧪 **Evaluation request**: `chris_ramseyer@phison.com`
+- 🧪 **Free Trial**: `aaron_pham@phison.com`
 - 🎓 **University outreach**: `aaron_pham@phison.com`
 
 > After you receive access, follow the repo’s [Installation](Page_Sections/Installation/README.md) section to integrate aiDAPTIVLink into your training or inference workflow.

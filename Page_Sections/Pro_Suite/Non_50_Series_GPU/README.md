@@ -1,6 +1,6 @@
 # Installation
 
-This README explains how to install **aiDAPTIV+ Pro Suite 2.0** for these [Compatible GPUs](https://github.com/atp224/aiDAPTIVTestPage?tab=readme-ov-file#-compatible-gpus).
+This README explains how to install **aiDAPTIV+ Pro Suite 2.0** for these [Compatible GPUs](../../README.md#-compatible-gpus).
 
 ---
 

@@ -118,7 +118,8 @@ Select your country or territory below to view purchase options.
 
 ### 🌏 Asia Pacific
 
-- HQ Fill out 
+Please contact your **local Phison partners** for aiDAPTIV+ inquiries in regions outside the US (TW, CN, MY, ID, JP).  
+*Note: aiDAPTIV Cache (SSD) is only sold through System Integrators as part of a full AI Training PC / Workstation / Server solution.*  
 
 ---
 

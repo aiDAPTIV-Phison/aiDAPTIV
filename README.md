@@ -1,13 +1,13 @@
 <div align="center">
 
 <a href="https://www.phison.com/en/aidaptiv-plus-ai-data-storage-solution"><picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/atp224/aiDAPTIVTestPage/blob/9c82838ab51db659fd33c0098db0b8fa5f2c4c58/assets/dark_logo.png">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/atp224/aiDAPTIVTestPage/blob/eafee428cb7b475d6dcf154d38587c5c78cf0e8a/assets/light_logo.png">
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/aiDAPTIV-Phison/aiDAPTIV/blob/571b1d5108ea57f87ec3c9f40a9d38f2e028e166/assets/dark_logo.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/aiDAPTIV-Phison/aiDAPTIV/blob/571b1d5108ea57f87ec3c9f40a9d38f2e028e166/assets/light_logo.png">
     <img alt="aiDAPTIV+ logo" src="https://github.com/atp224/aiDAPTIVTestPage/blob/main/assets/aiDAPTIV_logo.jpg?raw=true" height="110" style="max-width: 100%;">
   </picture></a>
 
   
-<a href="https://discord.gg/rJW6MS6m"><img src="https://github.com/atp224/aiDAPTIVTestPage/blob/main/assets/Discord_button.png?raw=true" width="165"></a>
+<a href="https://discord.gg/mJ3DtVWVCn"><img src="https://github.com/aiDAPTIV-Phison/aiDAPTIV/blob/571b1d5108ea57f87ec3c9f40a9d38f2e028e166/assets/Discord_button.png" width="165"></a>
 
 
 ### Finetune and Inference bigger Llama, Falcon, Deepseek models by using SSD Offload!
@@ -36,7 +36,7 @@ aiDAPTIVLink is distributed as part of the **aiDAPTIV+** offering.
 - **Academic programs:** Universities and student clubs can inquire about our outreach program for on‑prem testing.
 
 ---
-**Information on how to install aiDAPTIVLink is found [here](https://github.com/atp224/aiDAPTIVTestPage/tree/f208f0fc7650f9ed36942aff18a351ff37f1a0e8/Page_Sections/Installation)!**
+**Information on how to install aiDAPTIVLink is found [here](Page_Sections/Installation/README.md)!**
 ---
 
 ## System Requirements
@@ -127,8 +127,8 @@ Select your country or territory below to view purchase options.
 - 🧪 **Evaluation request**: `chris_ramseyer@phison.com`
 - 🎓 **University outreach**: `aaron_pham@phison.com`
 
-> After you receive access, follow the repo’s [Installation](https://github.com/atp224/aiDAPTIVTestPage/tree/f208f0fc7650f9ed36942aff18a351ff37f1a0e8/Page_Sections/Installation) section to integrate aiDAPTIVLink into your training or inference workflow.
+> After you receive access, follow the repo’s [Installation](Page_Sections/Installation/README.md) section to integrate aiDAPTIVLink into your training or inference workflow.
 
 ---
-For full installation steps, supported OS details, and performance tuning, see the [User Manual](https://github.com/atp224/aiDAPTIVTestPage/blob/9f4e564a1e0063a140170a4dcb12db197cd9235f/assets/user_manual.pdf).
+For full installation steps, supported OS details, and performance tuning, see the [User Manual](assets/user_manual.pdf).
 

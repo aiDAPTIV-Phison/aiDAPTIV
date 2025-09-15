@@ -85,7 +85,14 @@ aiDAPTIVLink has been tested with the following high-performance processors:
 | AMD   | EPYC 7713P                   | Single  | 64    | 2.0              | 128        |
 | AMD   | EPYC 9174F                   | Single  | 16    | 4.1              | 128        |
 
-> *We recommend CPUs with high PCIe lane counts to support simultaneous GPU and SSD throughput.*
+> **Note:** The CPUs listed above are ones Phison has validated internally.  
+> In practice, aiDAPTIV+ can run on a much broader range of processors.  
+> From a hardware standpoint, the key requirements are:  
+> - **PCIe Gen 4.0 or better**  
+> - **≥ 8 CPU cores**  
+> - **At least 24 PCIe lanes** (16 for a GPU + 2×4 for SSDs)  
+>  
+> Most modern Intel and AMD processors released in the last 10 years meet these requirements.  
 
 ---
 

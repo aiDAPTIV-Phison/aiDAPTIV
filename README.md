@@ -10,7 +10,7 @@
 <a href="https://discord.gg/mJ3DtVWVCn"><img src="https://github.com/aiDAPTIV-Phison/aiDAPTIV/blob/571b1d5108ea57f87ec3c9f40a9d38f2e028e166/assets/Discord_button.png" width="165"></a>
 
 
-### Finetune and Inference bigger Llama, Falcon, Deepseek models by using SSD Offload!
+### Finetune and Inference bigger Llama, Falcon, Deepseek models by using GPU Memory Extension!
 
 </div>
 

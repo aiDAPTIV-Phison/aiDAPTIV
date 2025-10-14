@@ -43,26 +43,74 @@ aiDAPTIVLink is distributed as part of the **aiDAPTIV+** offering.
 
 To ensure optimal performance and compatibility, aiDAPTIVLink requires the following hardware components:
 
-### ✅ Compatible GPUs
+## ✅ Supported NVIDIA GPUs
 
-aiDAPTIVLink is validated with the following NVIDIA GPUs (PCIe 4.0 x16):
+aiDAPTIVLink and aiDAPTIV+ have been validated with the following NVIDIA GPUs.  
+> *Note: PCIe Gen 4 ×16 bandwidth is recommended for optimal I/O throughput.*
 
-| Vendor  | Product Name                        | Memory Type | Capacity  | Bus Width |
-|---------|-------------------------------------|-------------|-----------|-----------|
-| NVIDIA  | H200                                | HBM2e       | 80 GB     | 5120-bit  |
-| NVIDIA  | H100                                | HBM2e       | 80 GB     | 5120-bit  |
-| NVIDIA  | RTX A6000                           | GDDR6       | 48 GB     | 384-bit   |
-| NVIDIA  | RTX A5000                           | GDDR6       | 24 GB     | 384-bit   |
-| NVIDIA  | GeForce RTX 4090                    | GDDR6X      | 24 GB     | 384-bit   |
-| NVIDIA  | GeForce RTX 4090 D                  | GDDR6X      | 24 GB     | 384-bit   |
-| NVIDIA  | L40                                  | GDDR6       | 48 GB     | 384-bit   |
-| NVIDIA  | L40S                                 | GDDR6       | 48 GB     | 384-bit   |
-| NVIDIA  | RTX 6000 Ada Generation             | GDDR6       | 48 GB     | 384-bit   |
-| NVIDIA  | RTX 5000 Ada Generation             | GDDR6       | 32 GB     | 256-bit   |
-| NVIDIA  | RTX 4000 Ada Generation             | GDDR6       | 20 GB     | 160-bit   |
-| NVIDIA  | RTX 4000 SFF Ada Generation         | GDDR6       | 20 GB     | 160-bit   |
+---
 
-> *Note: PCIe Gen 4 x16 bandwidth is recommended for optimal I/O throughput.*
+### 🧩 Professional GPUs
+
+| Product Name                                      | Architecture | Memory Type | Capacity | Bandwidth | FP16 TFLOPS | SMs | Power (TDP) | Notes |
+|--------------------------------------------------|--------------|-------------|-----------|------------|--------------|-----|--------------|-------|
+| **NVIDIA H200 NVL**                              | Hopper       | HBM3e       | 141 GB    | 4800 GB/s  | 1671         | 132 | 300–600 W configurable | Data center |
+| **NVIDIA H100 PCIe**                             | Hopper       | HBM2e       | 80 GB     | 2048 GB/s  | 1639         | 114 | 350 W | Data center |
+| **NVIDIA RTX Pro 6000 Blackwell (Workstation)**  | Blackwell    | GDDR7       | 96 GB     | 1792 GB/s  | 1000         | 188 | 600 W | Flagship Pro |
+| **NVIDIA RTX Pro 6000 Blackwell (Max-Q)**        | Blackwell    | GDDR7       | 96 GB     | 1792 GB/s  | 878          | 188 | 300 W | Mobile / Low-Power |
+| **NVIDIA RTX Pro 6000 Blackwell (Server)**       | Blackwell    | GDDR7       | 96 GB     | 1792 GB/s  | 1000         | 188 | 400–600 W configurable | Data center |
+| **NVIDIA RTX 6000 Ada Generation**               | Ada Lovelace | GDDR6       | 48 GB     | 960 GB/s   | 728          | 142 | 300 W | Workstation |
+| **NVIDIA RTX 5000 Ada Generation**               | Ada Lovelace | GDDR6       | 32 GB     | 576 GB/s   | 522          | 100 | 250 W | Workstation |
+| **NVIDIA RTX 4500 Ada Generation**               | Ada Lovelace | GDDR6       | 24 GB     | 432 GB/s   | 317          | 60  | 210 W | Workstation |
+| **NVIDIA RTX 4000 Ada Generation**               | Ada Lovelace | GDDR6       | 20 GB     | 360 GB/s   | 214          | 48  | 130 W | Workstation |
+| **NVIDIA RTX 4000 SFF Ada Generation**           | Ada Lovelace | GDDR6       | 20 GB     | 280 GB/s   | 153          | 48  | 70 W  | Small Form Factor |
+| **NVIDIA RTX A6000**                             | Ampere       | GDDR6       | 48 GB     | 768 GB/s   | 310          | 84  | 300 W | Legacy Pro |
+| **NVIDIA RTX A5000**                             | Ampere       | GDDR6       | 24 GB     | 768 GB/s   | 222          | 64  | 230 W | Legacy Pro |
+| **NVIDIA L40**                                   | Ada Lovelace | GDDR6       | 48 GB     | 960 GB/s   | —            | —   | — | Data center |
+| **NVIDIA L40S**                                  | Ada Lovelace | GDDR6       | 48 GB     | 960 GB/s   | —            | —   | — | Data center |
+
+---
+
+### 🎮 Consumer GPUs
+
+| Product Name                     | Architecture | Memory Type | Capacity | Bandwidth | FP16 TFLOPS | SMs | Power (TDP) | Notes |
+|---------------------------------|--------------|-------------|-----------|------------|--------------|-----|--------------|-------|
+| **GeForce RTX 5090**            | Blackwell    | GDDR7       | 32 GB     | 1792 GB/s  | 838          | 170 | 575 W | Desktop |
+| **GeForce RTX 5080**            | Blackwell    | GDDR7       | 16 GB     | 960 GB/s   | 450          | 84  | 360 W | Desktop |
+| **GeForce RTX 5070 Ti**         | Blackwell    | GDDR7       | 16 GB     | 896 GB/s   | 352          | 70  | 300 W | Desktop |
+| **GeForce RTX 4090**            | Ada Lovelace | GDDR6X      | 24 GB     | 1008 GB/s  | 661          | 128 | 450 W | Desktop |
+| **GeForce RTX 4090 D**          | Ada Lovelace | GDDR6X      | 24 GB     | 1008 GB/s  | —            | —   | 450 W | China variant |
+| **GeForce RTX 4080 Super**      | Ada Lovelace | GDDR6X      | 16 GB     | 736 GB/s   | 418          | 80  | 320 W | Desktop |
+| **GeForce RTX 4080**            | Ada Lovelace | GDDR6X      | 16 GB     | 717 GB/s   | 390          | 76  | 320 W | Desktop |
+| **GeForce RTX 4070 Ti Super**   | Ada Lovelace | GDDR6X      | 16 GB     | 672 GB/s   | 321          | 66  | 285 W | Desktop |
+| **GeForce RTX 3090 Ti**         | Ampere       | GDDR6X      | 24 GB     | 1008 GB/s  | 320          | 84  | 450 W | Legacy |
+| **GeForce RTX 3090**            | Ampere       | GDDR6X      | 24 GB     | 936 GB/s   | 285          | 82  | 350 W | Legacy |
+
+---
+
+### 💻 Laptop GPUs
+
+| Product Name                     | Architecture | Memory Type | Capacity | Bandwidth | FP16 TFLOPS | SMs | Power (TDP) | Notes |
+|---------------------------------|--------------|-------------|-----------|------------|--------------|-----|--------------|-------|
+| **GeForce RTX 5090 Laptop GPU** | Blackwell    | GDDR7       | 24 GB     | 896 GB/s   | 456          | 82  | 95–150 W | Mobile |
+| **GeForce RTX 5080 Laptop GPU** | Blackwell    | GDDR7       | 16 GB     | 896 GB/s   | 333          | 60  | 80–150 W | Mobile |
+| **GeForce RTX 4090 Laptop GPU** | Ada Lovelace | GDDR6       | 16 GB     | 576 GB/s   | 343          | 76  | 80–150 W | Mobile |
+| **GeForce RTX 3080 Ti Laptop GPU** | Ampere     | GDDR6       | 16 GB     | 512 GB/s   | 189          | 58  | 80–150 W | Legacy Mobile |
+
+---
+
+### ⚙️ Compatibility Notes
+
+- **Minimum VRAM for inference:** 20–24 GB (for Llama-3 8B-class models).  
+- **Minimum VRAM for fine-tuning:** 16 GB (requires aiDAPTIVCache SSD tiering).  
+- **Interface:** PCIe Gen 4 ×16 recommended; PCIe Gen 3 supported with reduced throughput.  
+- **Architectures validated:** Blackwell (B100 / RTX 50 Series), Hopper (H100/H200), Ada Lovelace (RTX 40 Series), Ampere (RTX 30 Series).  
+- **In progress:** AMD Radeon Instinct and Intel Gaudi series under internal testing.
+
+---
+
+> *Specifications validated from Phison Technical Marketing internal testing and official NVIDIA product documentation as of October 2025.*
+
 
 ---
 

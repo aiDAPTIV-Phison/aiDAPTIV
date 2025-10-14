@@ -107,8 +107,6 @@ aiDAPTIVLink and aiDAPTIV+ have been validated with the following NVIDIA GPUs.
 - **Architectures validated:** Blackwell (B100 / RTX 50 Series), Hopper (H100/H200), Ada Lovelace (RTX 40 Series), Ampere (RTX 30 Series).  
 - **In progress:** AMD Radeon Instinct and Intel Gaudi series under internal testing.
 
----
-
 > *Specifications validated from Phison Technical Marketing internal testing and official NVIDIA product documentation as of October 2025.*
 
 

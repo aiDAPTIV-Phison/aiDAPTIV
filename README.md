@@ -109,7 +109,42 @@ aiDAPTIVLink and aiDAPTIV+ have been validated with the following NVIDIA GPUs.
 
 > *Specifications validated from Phison Technical Marketing internal testing and official NVIDIA product documentation as of October 2025.*
 
+---
+## 🧠 Inference & Training Model Compatibility (Summary)
 
+**aiDAPTIV+** extends GPU memory by tiering model weights and activations across **GPU VRAM**, **system RAM**, and **aiDAPTIVCache SSDs**.  
+This lets you **fine-tune and run larger models** on affordable hardware.
+
+- **Training:** total usable memory ≈ GPU VRAM + system RAM + aiDAPTIVCache.  
+- **Inference:** model weights + KV cache must fit primarily in **GPU VRAM** (can be reduced with quantization).
+
+➡️ See the full VRAM/KV/SSD recommendations for Llama 3.x in the  
+**[Inference & Training Model Compatibility Guide](docs/inference_compatibility.md)**.
+
+<details>
+<summary>Prefer to keep the tables inline? (click to expand)</summary>
+
+### 🧩 Model VRAM & KV Cache Requirements
+
+| Model | Precision | GPU VRAM | KV Cache | Total VRAM Required |
+|:------|:----------|:---------|:---------|:--------------------|
+| Llama-3.2-3B | FP16 | 6 GB | 13.6 GB | 19.6 GB |
+| Llama-3.2-3B | Q4 | 1.5 GB | 3.4 GB | 4.9 GB |
+| Llama-3.1-8B | FP16 | 16 GB | 15.6 GB | 31.6 GB |
+| Llama-3.1-8B | Q4 | 4 GB | 3.6 GB | 7.6 GB |
+| Llama-3.1-70B | FP16 | 140 GB | 39 GB | 179 GB |
+| Llama-3.1-70B | Q4 | 35 GB | 9.75 GB | 44.75 GB |
+
+### 💾 Recommended aiDAPTIVCache Drive Capacity
+
+| SSD Capacity | Max Model Size Supported | Recommended System RAM |
+|:-------------|:--------------------------|:-----------------------|
+| 320 GB | Up to 13B | 64 GB |
+| 1 TB | Up to 34B | 64 GB |
+| 2 TB | Up to 70B | 128 GB |
+| 4 TB | Up to 180B | 256 GB |
+
+</details>
 ---
 
 ### ✅ Compatible CPUs

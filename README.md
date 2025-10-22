@@ -118,12 +118,6 @@ This lets you **fine-tune and run larger models** on affordable hardware.
 - **Training:** total usable memory ≈ GPU VRAM + system RAM + aiDAPTIVCache.  
 - **Inference:** model weights + KV cache must fit primarily in **GPU VRAM** (can be reduced with quantization).
 
-➡️ See the full VRAM/KV/SSD recommendations for Llama 3.x in the  
-**[Inference & Training Model Compatibility Guide](docs/inference_compatibility.md)**.
-
-<details>
-<summary>Prefer to keep the tables inline? (click to expand)</summary>
-
 ### 🧩 Model VRAM & KV Cache Requirements
 
 | Model | Precision | GPU VRAM | KV Cache | Total VRAM Required |
@@ -144,7 +138,6 @@ This lets you **fine-tune and run larger models** on affordable hardware.
 | 2 TB | Up to 70B | 128 GB |
 | 4 TB | Up to 180B | 256 GB |
 
-</details>
 ---
 
 ### ✅ Compatible CPUs

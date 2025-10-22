@@ -110,7 +110,7 @@ aiDAPTIVLink and aiDAPTIV+ have been validated with the following NVIDIA GPUs.
 > *Specifications validated from Phison Technical Marketing internal testing and official NVIDIA product documentation as of October 2025.*
 
 ---
-## 🧠 Inference & Training Model Compatibility (Summary)
+## 🧠 Inference & Training Model Compatibility
 
 **aiDAPTIV+** extends GPU memory by tiering model weights and activations across **GPU VRAM**, **system RAM**, and **aiDAPTIVCache SSDs**.  
 This lets you **fine-tune and run larger models** on affordable hardware.

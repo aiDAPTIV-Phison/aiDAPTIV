@@ -41,7 +41,7 @@ nvidia-smi
 
 ---
 
-### 2️⃣ Install CUDA Toolkit (12.4.1)
+### 2️⃣ Install CUDA Toolkit
 
 #### For 40-Series GPUs (Ada Lovelace)
 
@@ -102,7 +102,19 @@ So:
 ### 4️⃣ Install aiDAPTIVLink
 
 > ⚠️ Recommended: Use a fresh Ubuntu system.  
-> Alternatively, see [🐳 Docker Installation](#-docker-installation-alternative-setup) for isolated setup.
+> Alternatively, see [🐳 Docker Installation](#docker-installation-alternative-setup) for isolated setup.
+
+#### Create and activate a Python virtual environment (required as of v2.0.4.A1):
+```bash
+sudo apt install python3-venv -y
+python3 -m venv ~/aidaptiv_env
+source ~/aidaptiv_env/bin/activate
+```
+
+You’ll see (aidaptiv_env) at the start of your terminal prompt.
+This ensures aiDAPTIVLink installs dependencies in an isolated Python environment and avoids version conflicts.
+
+Now run the setup script:
 
 
 ```bash
@@ -116,7 +128,7 @@ bash setup_vNXUN_2_04_A1.sh
 
 ---
 
-# 5️⃣ Set Up LVM Drives
+### 5️⃣ Set Up LVM Drives
 
 > If you only have **one SSD**, skip to the _Single SSD Setup_ section below.
 
@@ -176,7 +188,7 @@ df -h | grep /mnt/nvme0
 
 ---
 
-## 🔁 Single SSD Setup (If only one SSD)
+### 🔁 Single SSD Setup (If only one SSD)
 
 ```bash
 sudo mkfs -t ext4 /dev/nvme1n1
@@ -189,7 +201,7 @@ sudo chown -R $USER:$USER /mnt/nvme0
 
 ---
 
-## 🧹 (Optional) Dissolve or Recreate LVM
+### 🧹 (Optional) Dissolve or Recreate LVM
 
 If you need to remove or rebuild your LVM group later:
 
@@ -202,7 +214,7 @@ sudo pvremove /dev/nvme1n1 /dev/nvme2n1
 
 ---
 
-## 💡 Optional – Enable Swap File on aiDAPTIVCache
+### 💡 Optional – Enable Swap File on aiDAPTIVCache
 
 Add a swap file to extend memory for large batch sizes:
 
@@ -229,7 +241,7 @@ bash setup_vNXUN_2_04_A1.sh
 - Confirm and proceed with update
 
 ---
-## 🐳 Docker Installation (Alternative Setup)
+### 🐳 Docker Installation (Alternative Setup)
 
 > If you prefer to install aiDAPTIVLink in an isolated container environment, you can use the Docker method instead of native installation.
 
@@ -404,5 +416,5 @@ Expected:
 ✅ If all tests pass, aiDAPTIVLink is ready for training or inference!
 
 ---
-Last updated for aiDAPTIV Middleware v2.0.4 (NXUN_2_04_A1) — Ubuntu 24.04.3 LTS, Kernel 6.14+._
+_Last updated for aiDAPTIV Middleware v2.0.4 (NXUN_2_04_A1) — Ubuntu 24.04.3 LTS, Kernel 6.14+._
 

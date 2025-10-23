@@ -4,19 +4,30 @@ Before installing aiDAPTIVLink, prepare your system with the necessary GPU drive
 
 ### ✅ Environment Requirements
 
-| Category       | Detail                           |
-|----------------|----------------------------------|
-| OS             | Ubuntu 22.04.3 Desktop           |
-| GPU Driver     | NVIDIA Driver 550                |
-| Python Version | Python 3.10.12                   |
+| Category       | Detail                                       |
+|----------------|----------------------------------------------|
+| OS             | Ubuntu 24.04.3 Desktop (kernel 6.14 +)       |
+| GPU Driver     | NVIDIA Driver 550                            |
+| Python Version | Python 3.12                                  |
+| CUDA Toolkit   | CUDA 12.4.1 (40-Series) / 12.8.0 (50-Series) |
+| cuDNN Library  | cuDNN 9.4.0 (40-Series) / 9.8.0 (50-Series)  |
 
 ---
 
 ### 1️⃣ Install NVIDIA GPU Driver
 
+
+#### For 40-Series GPUs (Ada Lovelace)
+
 ```bash
-sudo apt install nvidia-utils-550
-sudo apt install nvidia-driver-550
+sudo apt install nvidia-utils-550 nvidia-driver-550
+sudo reboot
+```
+
+#### For 50 Series GPUs (Blackwell)
+
+```bash
+sudo apt install nvidia-utils-570 nvidia-driver-570-open
 sudo reboot
 ```
 
@@ -32,10 +43,20 @@ nvidia-smi
 
 ### 2️⃣ Install CUDA Toolkit (12.4.1)
 
+#### For 40-Series GPUs (Ada Lovelace)
+
 ```bash
 wget https://developer.download.nvidia.com/compute/cuda/12.4.1/local_installers/cuda_12.4.1_550.54.15_linux.run
 sudo sh cuda_12.4.1_550.54.15_linux.run
 ```
+
+#### For 50-Series GPUs (Blackwell)
+
+```bash
+wget https://developer.download.nvidia.com/compute/cuda/12.8.0/local_installers/cuda_12.8.0_570.86.10_linux.run
+sudo sh cuda_12.8.0_570.86.10_linux.run
+```
+
 
 > ❗ During installation:
 > - Do **not** install the driver again.
@@ -45,13 +66,36 @@ sudo sh cuda_12.4.1_550.54.15_linux.run
 
 ### 3️⃣ Install cuDNN (9.4.0)
 
+#### For 40-Series GPUs (Ada Lovelace)
 ```bash
-wget https://developer.download.nvidia.com/compute/cudnn/9.4.0/local_installers/cudnn-local-repo-ubuntu2204-9.4.0_1.0-1_amd64.deb
-sudo dpkg -i cudnn-local-repo-ubuntu2204-9.4.0_1.0-1_amd64.deb
-sudo cp /var/cudnn-local-repo-ubuntu2204-9.4.0/cudnn-*-keyring.gpg /usr/share/keyrings/
+wget https://developer.download.nvidia.com/compute/cudnn/9.4.0/local_installers/cudnn-local-repo-ubuntu2404-9.4.0_1.0-1_amd64.deb
+sudo dpkg -i cudnn-local-repo-ubuntu2404-9.4.0_1.0-1_amd64.deb
+sudo cp /var/cudnn-local-repo-ubuntu2404-9.4.0/cudnn-*-keyring.gpg /usr/share/keyrings/
 sudo apt-get update
 sudo apt-get -y install cudnn-cuda-12
 ```
+
+#### For 50-Series GPUs (Blackwell)
+```bash
+wget https://developer.download.nvidia.com/compute/cudnn/9.8.0/local_installers/cudnn-local-repo-ubuntu2404-9.8.0_1.0-1_amd64.deb
+sudo dpkg -i cudnn-local-repo-ubuntu2404-9.8.0_1.0-1_amd64.deb
+sudo cp /var/cudnn-local-repo-ubuntu2404-9.8.0/cudnn-*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get -y install cudnn-cuda-12
+```
+
+### 🔍 Summary Table (optional addition)
+
+| GPU Generation | Driver | CUDA | cuDNN |
+|----------------|---------|-------|--------|
+| 40-Series (Ada) | 550 | 12.4.1 | 9.4.0 |
+| 50-Series (Blackwell) | 570-open | 12.8.0 | 9.8.0 |
+
+
+So:  
+- ✅ **40-series → driver 550, CUDA 12.4.1, cuDNN 9.4.0**  
+- ✅ **50-series → driver 570-open, CUDA 12.8.0, cuDNN 9.8.0**  
+
 
 ---
 
@@ -62,8 +106,8 @@ sudo apt-get -y install cudnn-cuda-12
 
 
 ```bash
-wget https://phisonbucket.s3.ap-northeast-1.amazonaws.com/setup_vNXUN_2_03_00.sh
-bash setup_vNXUN_2_03_00.sh
+wget https://phisonbucket.s3.ap-northeast-1.amazonaws.com/setup_vNXUN_2_04_A1.sh
+bash setup_vNXUN_2_04_A1.sh
 ```
 
 - Select `1. Deploy aiDAPTIV+`
@@ -72,7 +116,7 @@ bash setup_vNXUN_2_03_00.sh
 
 ---
 
-### 5️⃣ Set Up LVM Drives
+# 5️⃣ Set Up LVM Drives
 
 > If you only have **one SSD**, skip to the _Single SSD Setup_ section below.
 
@@ -90,16 +134,23 @@ lshw -class disk -class storage | grep -E 'ai100|logical name|version: EIFZ'
 lsblk | grep nvme
 ```
 
-**Wipe & Create Volume Group**
+**(Optional) Clean Existing Partitions**
+
+> If the SSDs were previously used, clear existing partition data to avoid conflicts.
 
 ```bash
 sudo wipefs -a /dev/nvme1n1 /dev/nvme2n1
+```
+
+**Create Volume Group and Logical Volume**
+
+```bash
 sudo pvcreate /dev/nvme1n1 /dev/nvme2n1
 sudo vgcreate ai /dev/nvme1n1 /dev/nvme2n1
 sudo lvcreate --type striped -i 2 -I 128k -l 100%FREE -n ai ai
 ```
 
-**Format & Mount**
+**Format and Mount**
 
 ```bash
 sudo mkfs.xfs -f -s size=4k -m crc=0 /dev/ai/ai
@@ -120,17 +171,47 @@ sudo sed -i '/\/dev\/ai\/ai/d' /etc/fstab
 
 ```bash
 lsblk
+df -h | grep /mnt/nvme0
 ```
 
 ---
 
-### 🔁 Single SSD Setup (If only one SSD)
+## 🔁 Single SSD Setup (If only one SSD)
 
 ```bash
 sudo mkfs -t ext4 /dev/nvme1n1
 sudo mkdir -p /mnt/nvme0
 sudo mount /dev/nvme1n1 /mnt/nvme0
 sudo chown -R $USER:$USER /mnt/nvme0
+```
+
+> ⚠️ Using a single SSD is supported but may reduce I/O performance compared to striped (dual-SSD) LVM setups.
+
+---
+
+## 🧹 (Optional) Dissolve or Recreate LVM
+
+If you need to remove or rebuild your LVM group later:
+
+```bash
+sudo umount /mnt/nvme0
+sudo lvremove /dev/ai/ai
+sudo vgremove ai
+sudo pvremove /dev/nvme1n1 /dev/nvme2n1
+```
+
+---
+
+## 💡 Optional – Enable Swap File on aiDAPTIVCache
+
+Add a swap file to extend memory for large batch sizes:
+
+```bash
+sudo dd if=/dev/zero of=/mnt/nvme0/swapfile bs=1M count=256k
+sudo chmod 600 /mnt/nvme0/swapfile
+sudo mkswap /mnt/nvme0/swapfile
+sudo swapon /mnt/nvme0/swapfile
+echo '/mnt/nvme0/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 ```
 
 ---
@@ -140,7 +221,7 @@ sudo chown -R $USER:$USER /mnt/nvme0
 To run firmware update later:
 
 ```bash
-bash setup_vNXUN_2_03_00.sh
+bash setup_vNXUN_2_04_A1.sh
 ```
 
 - Select option `3. FW Update`
@@ -170,8 +251,8 @@ sudo systemctl restart docker
 ### 📦 Download and Load Docker Image
 
 ```bash
-wget https://phisonbucket.s3.ap-northeast-1.amazonaws.com/aiDAPTIV_vNXUN_2_03_00.tar.gz
-docker load < aiDAPTIV_vNXUN_2_03_00.tar.gz
+wget https://phisonbucket.s3.ap-northeast-1.amazonaws.com/aiDAPTIV_vNXUN_2_04_A1.tar.gz
+docker load < aiDAPTIV_vNXUN_2_04_A1.tar.gz
 ```
 
 Confirm the image was loaded:
@@ -180,7 +261,7 @@ Confirm the image was loaded:
 docker image list
 ```
 
-> You should see: `aidaptiv:vNXUN_2_03_00`
+> You should see: `aidaptiv:vNXUN_2_04_A1`
 
 ---
 
@@ -212,7 +293,7 @@ commands/
 ```bash
 docker run --gpus all -it --ipc=host --privileged=true --ulimit memlock=-1 \
 --ulimit stack=67108864 -v </path/to/model>:/app -v </path/to/LVM>:/mnt \
--v /dev/mapper:/dev/mapper -v /var/lock:/var/lock aidaptiv:vNXUN_2_03_00
+-v /dev/mapper:/dev/mapper -v /var/lock:/var/lock aidaptiv:vNXUN_2_04_A1
 ```
 
 Replace:
@@ -243,7 +324,7 @@ nvcc --version
 
 Expected:
 - `nvidia-smi` should show your GPU and driver version.
-- `nvcc` should show CUDA 12.4.
+- `nvcc` should show CUDA 12.4 or 12.8 depending on your GPU generation.
 
 Check cuDNN version:
 
@@ -265,6 +346,11 @@ ls ~/Desktop/aiDAPTIV2/
 Expected:
 - You should see files and folders such as `commands/`, `env_config/`, etc.
 
+```bash
+phisonai2 -v
+```
+Expected output: aiDAPTIVLink vNXUN_2_04_A1
+
 ---
 
 ### ✅ Docker Image Check (if using Docker)
@@ -274,7 +360,7 @@ docker image list | grep aidaptiv
 ```
 
 Expected:
-- `aidaptiv:vNXUN_2_03_00` appears in the list
+- `aidaptiv:vNXUN_2_04_A1` appears in the list
 
 ---
 
@@ -316,3 +402,7 @@ Expected:
 ---
 
 ✅ If all tests pass, aiDAPTIVLink is ready for training or inference!
+
+---
+Last updated for aiDAPTIV Middleware v2.0.4 (NXUN_2_04_A1) — Ubuntu 24.04.3 LTS, Kernel 6.14+._
+

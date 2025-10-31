@@ -28,8 +28,6 @@ All runs used the [Dolly Creative Writing dataset](https://huggingface.co/datase
 | RTX 6000 Ada | 2 151 | 3 854 | 230 | 446 |
 | RTX 6000 Pro (Max Q) | 3 402 | 6 269 | 377 | 718 |
 
-*(see PDF for 4× GPU results and batch-size details)*
-
 ---
 
 ### ⚙️ Notes

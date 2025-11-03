@@ -1,5 +1,4 @@
 <div align="center">
-
 <a href="https://www.phison.com/en/aidaptiv-plus-ai-data-storage-solution"><picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/aiDAPTIV-Phison/aiDAPTIV/blob/571b1d5108ea57f87ec3c9f40a9d38f2e028e166/assets/dark_logo.png">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/aiDAPTIV-Phison/aiDAPTIV/blob/571b1d5108ea57f87ec3c9f40a9d38f2e028e166/assets/light_logo.png">
@@ -51,8 +50,7 @@ aiDAPTIVLink is currently supported **only on Linux** systems.
 > ⚙️ **Kernel Version:** 6.14 or higher  
 > 🚫 **Not supported:** Windows or macOS
 
-Before installing aiDAPTIVLink, ensure your environment meets the following requirements:
----s
+---
 
 ## ✅ Supported NVIDIA GPUs
 

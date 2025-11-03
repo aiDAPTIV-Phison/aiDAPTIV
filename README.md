@@ -41,7 +41,18 @@ aiDAPTIVLink is distributed as part of the **aiDAPTIV+** offering.
 
 ## System Requirements
 
-To ensure optimal performance and compatibility, aiDAPTIVLink requires the following hardware components:
+To ensure optimal performance and compatibility, aiDAPTIVLink requires the following software and hardware components:
+
+## 🧠 Operating System Compatibility
+
+aiDAPTIVLink is currently supported **only on Linux** systems.
+
+> ✅ **Recommended Distribution:** Ubuntu 24.04.3 LTS (Desktop or Server Edition)  
+> ⚙️ **Kernel Version:** 6.14 or higher  
+> 🚫 **Not supported:** Windows or macOS
+
+Before installing aiDAPTIVLink, ensure your environment meets the following requirements:
+---s
 
 ## ✅ Supported NVIDIA GPUs
 

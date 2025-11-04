@@ -1,6 +1,6 @@
 # 📊 aiDAPTIV Pro Suite Fine-Tuning Training Performance
 
-These benchmarks measure **training throughput (tokens/s)** for **Llama 3.1 8B and 70B Instruct** models on various NVIDIA GPUs using **Phison aiDAPTIV Pro Suite 2.0.3**.  
+These benchmarks measure **training throughput (tokens/s)** for **Llama 3.1 8B and 70B Instruct** models on various NVIDIA GPUs using **Phison aiDAPTIV Pro Suite 2.0.7**.  
 All runs used the [Dolly Creative Writing dataset](https://huggingface.co/datasets/lionelchg/dolly_creative_writing), 1 epoch, 12 000 sequence length, and Triton ON.
 
 ---
@@ -12,7 +12,7 @@ All runs used the [Dolly Creative Writing dataset](https://huggingface.co/datase
 | Memory | 512 GB DDR5-4800 |
 | Storage | 4 TB E18DC boot + 2× AI100 2 TB RAID 0 |
 | OS | Ubuntu 24 |
-| aiDAPTIV Pro Suite | v2.0.3 |
+| aiDAPTIV Pro Suite | v2.0.7 |
 
 ---
 

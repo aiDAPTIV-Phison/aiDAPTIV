@@ -50,7 +50,7 @@ python3 aidaptest_run.py --t 1
 
 ```bash
 docker run --gpus all -it --ipc=host --privileged=true --ulimit memlock=-1 \
-  -v /data:/data aiDAPTIV_vNXUN_2_03_00
+  -v /data:/data aiDAPTIV_vNXUN_2_04_A1
 ```
 
 ### Training Settings

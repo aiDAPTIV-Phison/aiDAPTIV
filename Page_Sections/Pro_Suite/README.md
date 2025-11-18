@@ -34,8 +34,6 @@ Below are the individual videos:
 3. **[Pro Suite Guru](https://youtu.be/sW8QPNIPgeQ)**
 4. **[Pro Suite Finetune](https://youtu.be/qbJ1gtBQFdE)**
 
----
-
 ### 🧪 GUI-Based Fine-tune & Inference Tutorial
 For a step-by-step workflow using the Pro Suite GUI (fine-tuning + inference), visit:
 

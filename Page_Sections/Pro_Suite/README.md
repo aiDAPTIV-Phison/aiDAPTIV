@@ -26,23 +26,21 @@ Choose the guide that matches your GPU and OS setup:
 ### 📺 aiDAPTIV+ Pro Suite Video Guides  
 A full video playlist is available here:  
 **YouTube Playlist — aiDAPTIV+ Pro Suite Guide**  
-https://www.youtube.com/playlist?list=
+https://www.youtube.com/playlist?list=PLm1ac1cNXKiMe_5LJpvFGMwXiRKSgHw6M
 
 Below are the individual videos:
 
-1. **Pro Suite Install (v2)**  
+1. **Pro Suite Install**  
    https://youtu.be/NyVofmkrE2U
 
-2. **Pro Suite Intro (v2)**  
+2. **Pro Suite Intro**  
    https://youtu.be/Ogd-bzhOTvQ
 
-3. **Pro Suite Guru (v2)**  
+3. **Pro Suite Guru**  
    https://youtu.be/sW8QPNIPgeQ
 
-4. **Pro Suite Finetune (v2)**  
+4. **Pro Suite Finetune**  
    https://youtu.be/qbJ1gtBQFdE
-
----
 
 ### 🧪 GUI-Based Fine-tune & Inference Tutorial  
 For a full step-by-step workflow using the Pro Suite GUI (fine-tuning + inference), visit the aiDAPTIV Training Course:

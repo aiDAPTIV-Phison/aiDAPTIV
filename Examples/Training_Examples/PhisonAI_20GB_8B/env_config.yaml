@@ -1,0 +1,20 @@
+# env_config.yaml
+# Save_path, nvme_path, log_name settings
+path_settings:
+  lora:
+    lora_weight: ""       # whether to load lora_weight (only activated when lora: true)
+    lora_optimizer: ""    # whether to load lora_optimizer (only activated when lora: true)
+    lora_output_dir: ""   # where to save lora adapter weight (only activated when lora: true)
+
+  model_name_or_path: "/home/{username}/workspace/models/Meta-Llama-3.1-8B-Instruct"
+  multi_node_env_path: null
+  optimizer_path: ""      # whether to load optimizer state
+
+  train_data_path:
+    - ./QA_dataset_config.yaml
+
+  val_data_path: null
+
+  nvme_path: "/mnt/nvme0"
+  output_dir: "output/"
+  log_name: "output/PhisonAI_20GB_8B.log"

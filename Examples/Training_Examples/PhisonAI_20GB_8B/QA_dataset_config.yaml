@@ -1,0 +1,9 @@
+rm-static:
+  data_path: "Dahoas/rm-static"
+  strategy: "QA"
+  system_prompt: ""
+  user_prompt: "{question}"
+  question_key: "instruction"
+  answer_key: "response"
+  label_key: "response"
+  exp_type: train

@@ -20,13 +20,13 @@ This README focuses **only on llama.cpp inference**.
 
 ---
 
-## ✅ Prerequisites (NVIDIA DGX Spark–Style Inference)
+## ✅ Prerequisites (NVIDIA DGX Spark - Style Inference)
 
 This guide is intended for **inference-only workflows** and is
-**designed and validated for NVIDIA GPU–based systems following a
-DGX Spark–style architecture**.
+**designed and validated for NVIDIA GPU – based systems following a
+DGX Spark – style architecture**.
 
-The llama.cpp integration in this guide is **NVIDIA GPU–specific** and
+The llama.cpp integration in this guide is **NVIDIA GPU – specific** and
 leverages CUDA for execution, with the Phison aiDAPTIV SSD used for
 **KV-cache offload** to extend effective GPU memory during inference.
 
@@ -40,7 +40,7 @@ You **do NOT** need to install aiDAPTIV+ Middleware to follow this guide.
 - A **Phison aiDAPTIV SSD** mounted for KV-cache offload  
   *(examples assume `/mnt/nvme0`)*
 
-> **Note:** If you plan to **fine-tune or train models**, refer to the
+> **Note:** If you plan to **fine-tune**, refer to the
 aiDAPTIV+ Middleware installation guide instead. Those workflows require
 a different software stack.
 

@@ -6,7 +6,7 @@ You **do not need to install both** unless your workflow requires it.
 
 ---
 
-## 🧠 Option 1: llama.cpp Inference (Inference Only)
+## Option 1: llama.cpp Inference (Inference Only)
 
 This guide covers **running llama.cpp with aiDAPTIV+ for inference workloads**, including:
 
@@ -20,12 +20,11 @@ This guide covers **running llama.cpp with aiDAPTIV+ for inference workloads**, 
 ➡️ **Choose this option if you only need inference**  
 ➡️ **Middleware installation is NOT required**
 
-📄 **Guide:**  
-👉 [llama.cpp/README.md](llama.cpp/README.md)
+[Guide](llama.cpp/README.md)
 
 ---
 
-## 🧪 Option 2: aiDAPTIV+ Middleware (Fine-Tuning)
+## Option 2: aiDAPTIV+ Middleware (Fine-Tuning)
 
 This guide covers the **aiDAPTIV+ middleware stack**, which is primarily used for **model fine-tuning and training workflows**, including:
 
@@ -38,8 +37,7 @@ This guide covers the **aiDAPTIV+ middleware stack**, which is primarily used fo
 ➡️ **Choose this option if you plan to fine-tune or train models**  
 ➡️ **Not required for llama.cpp inference-only workflows**
 
-📄 **Guide:**  
-👉 [Middleware/README.md](Middleware/README.md)
+[Guide](Middleware/README.md)
 
 ---
 

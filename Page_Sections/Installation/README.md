@@ -25,7 +25,7 @@ This guide covers **running llama.cpp with aiDAPTIV+ for inference workloads**, 
 
 ---
 
-## 🧪 Option 2: aiDAPTIV+ Middleware (Fine-Tuning & Training)
+## 🧪 Option 2: aiDAPTIV+ Middleware (Fine-Tuning)
 
 This guide covers the **aiDAPTIV+ middleware stack**, which is primarily used for **model fine-tuning and training workflows**, including:
 

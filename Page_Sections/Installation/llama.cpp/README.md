@@ -1,34 +1,42 @@
-# aiDAPTIV+ llama.cpp Inference Guide
+# aiDAPTIV+ llama.cpp Inference Guide (DGX Spark Systems Only)
 
-This guide describes how to run **llama.cpp inference accelerated by aiDAPTIV+ SSD KV-cache offload**.
+This guide describes how to run **llama.cpp inference accelerated by aiDAPTIV+ SSD KV-cache offload** on **NVIDIA DGX Spark–based systems**.
+
+It is intended for **inference-only workflows** and is **not a general-purpose inference guide**.
 
 ---
 
 ## 🔍 Inference vs Middleware Clarification
 
-aiDAPTIV+ supports **multiple AI workflows**, which are installed and used independently:
+aiDAPTIV+ supports **multiple AI workflows**, which are installed and used independently depending on the hardware platform and workload type.
 
-- **llama.cpp (this guide)**  
-  → Inference-only workloads using GGUF models  
-  → **Does NOT require aiDAPTIV+ Middleware or fine-tuning stack**
+### llama.cpp Inference (This Guide)
+- **Inference-only workloads** using GGUF models  
+- **Designed for NVIDIA DGX Spark–based systems**  
+- Uses CUDA-enabled GPUs with SSD-based KV-cache offload  
+- **Does NOT require aiDAPTIV+ Middleware**
 
-- **aiDAPTIV+ Middleware**  
-  → Fine-tuning and training workflows  
-  → Installed separately and not required for inference
+### aiDAPTIV+ Middleware
+- **Fine-tuning and training workflows**
+- Required for **AI100E-based systems**
+- Installed separately
+- Not required for inference-only DGX Spark workflows
 
-This README focuses **only on llama.cpp inference**.
+> ⚠️ **Important:**  
+> If your system uses an **AI100E drive**, do **not** follow this guide.  
+> AI100E systems must use the **aiDAPTIV+ Middleware installation guide** instead.
 
 ---
 
-## ✅ Prerequisites (NVIDIA DGX Spark - Style Inference)
+## ✅ Prerequisites (DGX Spark Systems Only)
 
-This guide is intended for **inference-only workflows** and is
-**designed and validated for NVIDIA GPU – based systems following a
-DGX Spark – style architecture**.
+This guide is intended **only for NVIDIA DGX Spark–based systems** and
+covers **inference-only workflows** using an aiDAPTIV-enabled `llama.cpp`
+package.
 
-The llama.cpp integration in this guide is **NVIDIA GPU – specific** and
-leverages CUDA for execution, with the Phison aiDAPTIV SSD used for
-**KV-cache offload** to extend effective GPU memory during inference.
+The integration in this guide is **NVIDIA GPU–specific**, leverages
+CUDA for execution, and uses a Phison aiDAPTIV SSD for **KV-cache offload**
+to extend effective GPU memory during inference.
 
 You **do NOT** need to install aiDAPTIV+ Middleware to follow this guide.
 
@@ -40,10 +48,9 @@ You **do NOT** need to install aiDAPTIV+ Middleware to follow this guide.
 - A **Phison aiDAPTIV SSD** mounted for KV-cache offload  
   *(examples assume `/mnt/nvme0`)*
 
-> **Note:** If you plan to **fine-tune**, refer to the
+> **Note:** If you plan to **fine-tune or train models**, refer to the
 aiDAPTIV+ Middleware installation guide instead. Those workflows require
 a different software stack.
-
 
 ---
 
@@ -52,7 +59,7 @@ a different software stack.
 - Deploying the aiDAPTIV-enabled `llama.cpp` inference package
 - Environment and dependency setup
 - Model preparation (GGUF, LoRA, multimodal)
-- Running inference servers (native + Docker)
+- Running inference servers (native and Docker)
 - aiDAPTIV KV-cache offload arguments
 - Client interaction (Python, curl, Web UI)
 - KV-cache resume and lock mechanisms
@@ -124,7 +131,17 @@ Recommended quantization:
 ## 5️⃣ Running Inference
 
 ```bash
-./llama-server   --flash-attn on   --model Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf   --predict 400   --ctx-size 8192   --gpu-layers 100   --offload-path /mnt/nvme0   --ssd-kv-offload-gb 10   --dram-kv-offload-gb 10   --kv-cache-resume-policy 0   --swa-full
+./llama-server \
+  --flash-attn on \
+  --model Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf \
+  --predict 400 \
+  --ctx-size 8192 \
+  --gpu-layers 100 \
+  --offload-path /mnt/nvme0 \
+  --ssd-kv-offload-gb 10 \
+  --dram-kv-offload-gb 10 \
+  --kv-cache-resume-policy 0 \
+  --swa-full
 ```
 
 ---
@@ -134,25 +151,31 @@ Recommended quantization:
 ### Python
 ```python
 import requests
-print(requests.post(
-  "http://127.0.0.1:8080/completion",
-  json={"prompt":"Hello","cache_prompt":True}
-).json()["content"])
+
+response = requests.post(
+    "http://127.0.0.1:8080/completion",
+    json={"prompt": "Hello", "cache_prompt": True}
+)
+
+print(response.json()["content"])
 ```
 
 ### curl
 ```bash
-curl http://127.0.0.1:8080/completion  -H "Content-Type: application/json"  -d '{"prompt":"Hello","cache_prompt":true}'
+curl http://127.0.0.1:8080/completion \
+  -H "Content-Type: application/json" \
+  -d '{"prompt":"Hello","cache_prompt":true}'
 ```
 
 ---
 
 ## ✅ Ready for Inference
 
-If KV cache files appear under:
+If KV-cache files appear under:
 
-```
+```text
 /mnt/nvme0/inference_phison/
 ```
 
-aiDAPTIV+ is successfully accelerating llama.cpp inference.
+then **aiDAPTIV+ is successfully accelerating llama.cpp inference**
+using SSD-based KV-cache offload.

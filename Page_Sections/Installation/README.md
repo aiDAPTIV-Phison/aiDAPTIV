@@ -19,7 +19,7 @@ This guide covers the **core system setup** required for aiDAPTIV+, including:
 ➡️ **Start here first**
 
 📄 **Guide:**  
-👉 [Middleware/README.md](Middleware/README.md)
+[Click Here](Middleware/README.md)
 
 ---
 
@@ -37,7 +37,7 @@ This guide covers **running llama.cpp inference on top of an existing aiDAPTIV+ 
 ➡️ **Follow this after completing the middleware installation**
 
 📄 **Guide:**  
-👉 [llama.cpp/README.md](llama.cpp/README.md)
+[Click Here](llama.cpp/README.md)
 
 ---
 

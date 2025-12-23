@@ -2,9 +2,6 @@
 
 This guide describes how to run **llama.cpp inference accelerated by aiDAPTIV+ SSD KV-cache offload**.
 
-It is based on the official *aiDAPTIV llama.cpp Inference User Guide (NEUO301F0B)*, rewritten as a
-**clean, text-only Markdown README** suitable for GitHub and developer documentation.
-
 ---
 
 ## 🔍 Inference vs Middleware Clarification
@@ -23,21 +20,30 @@ This README focuses **only on llama.cpp inference**.
 
 ---
 
-## ✅ Prerequisites
+## ✅ Prerequisites (NVIDIA DGX Spark–Style Inference)
 
-This guide is intended for **inference-only workflows**.
+This guide is intended for **inference-only workflows** and is
+**designed and validated for NVIDIA GPU–based systems following a
+DGX Spark–style architecture**.
+
+The llama.cpp integration in this guide is **NVIDIA GPU–specific** and
+leverages CUDA for execution, with the Phison aiDAPTIV SSD used for
+**KV-cache offload** to extend effective GPU memory during inference.
 
 You **do NOT** need to install aiDAPTIV+ Middleware to follow this guide.
 
-Required components:
+### Required Components
 
 - A supported **NVIDIA GPU**
 - NVIDIA GPU driver installed
 - CUDA & cuDNN installed (per GPU generation)
 - A **Phison aiDAPTIV SSD** mounted for KV-cache offload  
-  (examples assume `/mnt/nvme0`)
+  *(examples assume `/mnt/nvme0`)*
 
-If you plan to **fine-tune or train models**, refer to the Middleware installation guide separately.
+> **Note:** If you plan to **fine-tune or train models**, refer to the
+aiDAPTIV+ Middleware installation guide instead. Those workflows require
+a different software stack.
+
 
 ---
 

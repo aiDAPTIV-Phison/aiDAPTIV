@@ -34,7 +34,7 @@ It includes:
 ## Option 2: aiDAPTIV+ Middleware (AI100E Systems)
 
 This guide is intended **only for systems using the AI100E drive** and
-covers the **aiDAPTIV+ middleware stack** for **model fine-tuning and training**.
+covers the **aiDAPTIV+ middleware stack** for **model fine-tuning**.
 
 It includes:
 
@@ -45,7 +45,7 @@ It includes:
 - Training environment verification
 
 ➡️ **Choose this option if you are using an AI100E drive**  
-➡️ **Required for fine-tuning and training workflows**  
+➡️ **Required for fine-tuning workflows**  
 ➡️ **Not required for DGX Spark inference**
 
 [Guide](Middleware/README.md)
@@ -58,7 +58,7 @@ It includes:
 |------------|-----------------|----------------|
 | **DGX Spark** | Inference only | llama.cpp/README.md |
 | **AI100E-based system** | Fine-tuning / training | Middleware/README.md |
-| **DGX Spark + AI100E** | Fine-tuning + inference | Middleware → llama.cpp |
+
 
 ---
 

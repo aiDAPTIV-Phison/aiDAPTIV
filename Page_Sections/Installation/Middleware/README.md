@@ -1,4 +1,40 @@
-# Installation
+# aiDAPTIV+ Middleware Installation Guide (AI100E Systems Only)
+
+This guide describes how to install and configure the **aiDAPTIV+ Middleware
+stack** for **model fine-tuning and training workflows** on **AI100E-based systems**.
+
+It is intended for workloads that require:
+- GPU memory extension via aiDAPTIVLink
+- Dataset staging and checkpointing
+- Fine-tuning or training large models
+
+This guide is **not intended for inference-only workflows**.
+
+---
+
+## 🔍 Middleware vs Inference Clarification
+
+aiDAPTIV+ supports **multiple AI workflows**, which are installed and used
+independently depending on the hardware platform and workload type.
+
+### aiDAPTIV+ Middleware (This Guide)
+- **Fine-tuning and training workflows**
+- **Required for AI100E-based systems**
+- Includes aiDAPTIVLink, drivers, and training runtime
+- Supports LLM fine-tuning, checkpointing, and memory offload
+
+### llama.cpp Inference
+- **Inference-only workloads**
+- **Designed for NVIDIA DGX Spark systems**
+- Installed separately
+- Does **NOT** require aiDAPTIV+ Middleware
+
+> ⚠️ **Important:**  
+> If you are running on a **DGX Spark system**, do **not** follow this guide.
+> DGX Spark systems should use the **llama.cpp inference guide** instead.
+
+
+## Installation
 
 Before installing aiDAPTIVLink, prepare your system with the necessary GPU drivers, CUDA toolkit, libraries, and disk setup.
 

@@ -1,51 +1,56 @@
 # aiDAPTIV+ Installation Guides
 
-This repository contains **two separate installation and setup guides**, depending on how you plan to use aiDAPTIV+.
+This repository contains **two independent installation guides**, depending on how you plan to use aiDAPTIV+.
 
-Please follow the guides **in order** if you plan to run llama.cpp inference with aiDAPTIV+.
-
----
-
-## 📦 1. aiDAPTIV+ Middleware Installation
-
-This guide covers the **core system setup** required for aiDAPTIV+, including:
-
-- NVIDIA GPU drivers
-- CUDA & cuDNN
-- aiDAPTIVLink installation
-- Phison SSD setup (LVM / mount)
-- System verification and testing
-
-➡️ **Start here first**
-
-📄 **Guide:**  
-[Click Here](Middleware/README.md)
+You **do not need to install both** unless your workflow requires it.
 
 ---
 
-## 🧠 2. llama.cpp Inference with aiDAPTIV+
+## 🧠 Option 1: llama.cpp Inference (Inference Only)
 
-This guide covers **running llama.cpp inference on top of an existing aiDAPTIV+ installation**, including:
+This guide covers **running llama.cpp with aiDAPTIV+ for inference workloads**, including:
 
-- Deploying aiDAPTIV-enabled llama.cpp
+- Deploying the aiDAPTIV-enabled llama.cpp inference package
 - Model preparation (GGUF, quantization, LoRA, multimodal)
 - SSD KV-cache offload configuration
-- Native and Docker inference
+- Native and Docker-based inference
 - Client interaction (Python, curl, Web UI)
 - KV-cache resume and locking
 
-➡️ **Follow this after completing the middleware installation**
+➡️ **Choose this option if you only need inference**  
+➡️ **Middleware installation is NOT required**
 
 📄 **Guide:**  
-[Click Here](llama.cpp/README.md)
+👉 [llama.cpp/README.md](llama.cpp/README.md)
 
 ---
 
-## ✅ Recommended Order
+## 🧪 Option 2: aiDAPTIV+ Middleware (Fine-Tuning & Training)
 
-1. **aiDAPTIV+ Middleware Installation**
-2. **llama.cpp Inference Guide**
+This guide covers the **aiDAPTIV+ middleware stack**, which is primarily used for **model fine-tuning and training workflows**, including:
+
+- NVIDIA GPU drivers
+- CUDA & cuDNN
+- aiDAPTIVLink middleware installation
+- Phison SSD setup (LVM / mount)
+- Training environment verification
+
+➡️ **Choose this option if you plan to fine-tune or train models**  
+➡️ **Not required for llama.cpp inference-only workflows**
+
+📄 **Guide:**  
+👉 [Middleware/README.md](Middleware/README.md)
 
 ---
 
-If you are only installing aiDAPTIV+ middleware and **not** running llama.cpp, you may stop after Guide #1.
+## ✅ Choosing the Right Path
+
+| Use Case | Required Guide |
+|--------|----------------|
+| Inference only (llama.cpp) | llama.cpp/README.md |
+| Fine-tuning / training | Middleware/README.md |
+| Fine-tuning + inference | Both (Middleware → llama.cpp) |
+
+---
+
+If you are unsure which guide applies to your use case, start with the **llama.cpp inference guide**, as it has the fewest dependencies.

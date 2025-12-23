@@ -2,7 +2,7 @@
 
 This repository contains **two separate installation and setup guides**, depending on how you plan to use aiDAPTIV+.
 
-Please follow **both guides in order** if you plan to run llama.cpp inference with aiDAPTIV+.
+Please follow the guides **in order** if you plan to run llama.cpp inference with aiDAPTIV+.
 
 ---
 
@@ -19,8 +19,7 @@ This guide covers the **core system setup** required for aiDAPTIV+, including:
 ➡️ **Start here first**
 
 📄 **Guide:**  
-`README.md`  
-(or `installation/README.md`, depending on repo layout)
+👉 [Middleware/README.md](Middleware/README.md)
 
 ---
 
@@ -38,7 +37,7 @@ This guide covers **running llama.cpp inference on top of an existing aiDAPTIV+ 
 ➡️ **Follow this after completing the middleware installation**
 
 📄 **Guide:**  
-`inference/llama.cpp/README.md`
+👉 [llama.cpp/README.md](llama.cpp/README.md)
 
 ---
 

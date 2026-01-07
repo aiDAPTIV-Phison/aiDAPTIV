@@ -14,7 +14,7 @@
 </div>
 
 
-**This is the official GitHub repository for Phison’s aiDAPTIV+ platform.** aiDAPTIV+ is designed to remove GPU memory bottlenecks in AI training and inference by intelligently using SSD storage as a fast extension to GPU VRAM. This enables developers, researchers, and enterprises to run larger language models and longer context windows on existing hardware — while keeping data fully on-prem.
+**This is the official GitHub repository for Phison’s aiDAPTIV+ platform.** aiDAPTIV+ is designed to remove GPU memory bottlenecks in AI training and inference by intelligently using SSD storage as a fast extension to GPU VRAM. This enables developers, researchers, and enterprises to run larger language models and longer context windows on existing hardware - while keeping data fully on-prem.
 
 ## What is aiDAPTIVLink?
 

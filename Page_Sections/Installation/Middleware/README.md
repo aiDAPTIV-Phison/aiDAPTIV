@@ -138,7 +138,7 @@ So:
 ### 4️⃣ Install aiDAPTIVLink
 
 > ⚠️ Recommended: Use a fresh Ubuntu system.  
-> Alternatively, see [🐳 Docker Installation](docker-installation-alternative-setup) for isolated setup.
+> Alternatively, see [🐳 Docker Installation](#docker-installation-alternative-setup) for isolated setup.
 
 #### Create and activate a Python virtual environment (required as of v2.0.4.A1):
 ```bash

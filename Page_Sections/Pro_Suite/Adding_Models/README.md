@@ -101,7 +101,7 @@ bash <(curl -sSL https://g.bodaay.io/hfd) -t [YOUR_API_KEY] download meta-llama/
 bash <(curl -sSL https://g.bodaay.io/hfd) -t [YOUR_API_KEY] download meta-llama/Llama-3.2-3B-Instruct
 bash <(curl -sSL https://g.bodaay.io/hfd) -t [YOUR_API_KEY] download meta-llama/Llama-3.1-8B-Instruct
 bash <(curl -sSL https://g.bodaay.io/hfd) -t [YOUR_API_KEY] download meta-llama/Llama-3.1-70B-Instruct
-bash <(curl -sSL https://g.bodaay.io/hfd) download meta-llama/Llama-3.1-405B-Instruct
+bash <(curl -sSL https://g.bodaay.io/hfd) -t [YOUR_API_KEY] download meta-llama/Llama-3.1-405B-Instruct
 ```
 
 Downloaded models will appear under:

@@ -13,7 +13,7 @@
 **This is the official GitHub repository for Phison’s aiDAPTIV+ platform.**  
 aiDAPTIV+ is a storage-accelerated AI infrastructure platform designed to remove GPU memory bottlenecks during large language model (LLM) training and inference by using high-performance NVMe SSDs as a fast extension to GPU VRAM.
 
-This enables developers, researchers, and enterprises to run larger models, longer context windows, and more demanding workloads on existing on-prem hardware — without relying on cloud infrastructure.
+This enables developers, researchers, and enterprises to run larger models, longer context windows, and more demanding workloads on existing on-prem hardware without relying on cloud infrastructure.
 
 ### What you’ll find in this repository
 - Installation and deployment guides for aiDAPTIVLink

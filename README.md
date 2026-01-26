@@ -9,12 +9,15 @@
 <a href="https://discord.gg/mJ3DtVWVCn"><img src="https://github.com/aiDAPTIV-Phison/aiDAPTIV/blob/571b1d5108ea57f87ec3c9f40a9d38f2e028e166/assets/Discord_button.png" width="165"></a>
 
 
-### Finetune and Inference bigger Llama, Falcon, Deepseek models by using GPU Memory Extension!
+### Storage-accelerated LLM inference and fine-tuning beyond GPU VRAM limits
 
 </div>
 
 
-**This is the official GitHub repository for Phison’s aiDAPTIV+ platform.** aiDAPTIV+ is designed to remove GPU memory bottlenecks in AI training and inference by intelligently using SSD storage as a fast extension to GPU VRAM. This enables developers, researchers, and enterprises to run larger language models and longer context windows on existing hardware - while keeping data fully on-prem.
+## This is the official GitHub repository for Phison’s aiDAPTIV+ platform.
+aiDAPTIV+ is a storage-accelerated AI infrastructure platform designed to remove GPU memory bottlenecks during large language model (LLM) training and inference by using high-performance NVMe SSDs as a fast extension to GPU VRAM.
+
+This enables developers, researchers, and enterprises to run larger models, longer context windows, and more demanding workloads on existing on-prem hardware — without relying on cloud infrastructure.
 
 ## What is aiDAPTIVLink?
 

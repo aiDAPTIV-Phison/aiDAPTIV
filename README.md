@@ -5,19 +5,22 @@
     <img alt="aiDAPTIV+ logo" src="https://github.com/atp224/aiDAPTIVTestPage/blob/main/assets/aiDAPTIV_logo.jpg?raw=true" height="110" style="max-width: 100%;">
   </picture></a>
 
-  
 <a href="https://discord.gg/mJ3DtVWVCn"><img src="https://github.com/aiDAPTIV-Phison/aiDAPTIV/blob/571b1d5108ea57f87ec3c9f40a9d38f2e028e166/assets/Discord_button.png" width="165"></a>
 
-
 ### Storage-accelerated LLM inference and fine-tuning beyond GPU VRAM limits
-
 </div>
 
-
-## This is the official GitHub repository for Phison’s aiDAPTIV+ platform.
+**This is the official GitHub repository for Phison’s aiDAPTIV+ platform.**  
 aiDAPTIV+ is a storage-accelerated AI infrastructure platform designed to remove GPU memory bottlenecks during large language model (LLM) training and inference by using high-performance NVMe SSDs as a fast extension to GPU VRAM.
 
 This enables developers, researchers, and enterprises to run larger models, longer context windows, and more demanding workloads on existing on-prem hardware — without relying on cloud infrastructure.
+
+### What you’ll find in this repository
+- Installation and deployment guides for aiDAPTIVLink
+- LLM inference and fine-tuning workflows (PyTorch, vLLM, llama.cpp)
+- Documentation on KV-cache offload and SSD-based memory tiering
+- Hardware compatibility, benchmarks, and performance guidance
+- Integration examples and reference architectures
 
 ## What is aiDAPTIVLink?
 

@@ -69,6 +69,9 @@ a different software stack.
 
 ## 1️⃣ Deploy aiDAPTIV llama.cpp
 
+> ℹ️ **Note:** The installer package is not currently hosted for public download.  
+> For the most up-to-date installer, please contact: **jim_wen@phison.com** by email
+
 ### Extract Package
 
 ```bash

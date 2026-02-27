@@ -1,10 +1,10 @@
-# aiDAPTIV+ Middleware Installation Guide (AI100E Systems Only)
+# aiDAPTIV Middleware Installation Guide (AI100E Systems Only)
 
-This guide describes how to install and configure the **aiDAPTIV+ Middleware
+This guide describes how to install and configure the **aiDAPTIV Middleware
 stack** for **model fine-tuning and training workflows** on **AI100E-based systems**.
 
 It is intended for workloads that require:
-- GPU memory extension via aiDAPTIVLink
+- GPU memory extension via aiDAPTIV middleware
 - Dataset staging and checkpointing
 - Fine-tuning or training large models
 
@@ -14,24 +14,24 @@ This guide is **not intended for inference-only workflows**.
 
 ## 🔍 Middleware vs Inference Clarification
 
-aiDAPTIV+ supports **multiple AI workflows**, which are installed and used
+aiDAPTIV supports **multiple AI workflows**, which are installed and used
 independently depending on the hardware platform and workload type.
 
-### aiDAPTIV+ Middleware (This Guide)
+### aiDAPTIV Middleware (This Guide)
 - **Fine-tuning and training workflows**
 - **Required for AI100E-based systems**
-- Includes aiDAPTIVLink, drivers, and training runtime
+- Includes aiDAPTIV middleware, drivers, and training runtime
 - Supports LLM fine-tuning, checkpointing, and memory offload
 
 ### llama.cpp Inference
 - **Inference-only workloads**
 - **Designed for NVIDIA DGX Spark systems**
 - Installed separately
-- Does **NOT** require aiDAPTIV+ Middleware
+- Does **NOT** require aiDAPTIV Middleware
 
 ## Installation
 
-Before installing aiDAPTIVLink, prepare your system with the necessary GPU drivers, CUDA toolkit, libraries, and disk setup.
+Before installing aiDAPTIVmiddleware, prepare your system with the necessary GPU drivers, CUDA toolkit, libraries, and disk setup.
 
 ### ✅ Environment Requirements
 
@@ -130,7 +130,7 @@ So:
 
 ---
 
-### 4️⃣ Install aiDAPTIVLink
+### 4️⃣ Install aiDAPTIV middleware
 
 > ⚠️ Recommended: Use a fresh Ubuntu system.  
 > Alternatively, see [🐳 Docker Installation](#-docker-installation-alternative-setup) for isolated setup.
@@ -143,7 +143,7 @@ source ~/aidaptiv_env/bin/activate
 ```
 
 You’ll see (aidaptiv_env) at the start of your terminal prompt.
-This ensures aiDAPTIVLink installs dependencies in an isolated Python environment and avoids version conflicts.
+This ensures aiDAPTIV middleware installs dependencies in an isolated Python environment and avoids version conflicts.
 
 Now run the setup script:
 
@@ -153,7 +153,7 @@ wget https://phisonbucket.s3.ap-northeast-1.amazonaws.com/setup_vNXUN_2_04_A1.sh
 bash setup_vNXUN_2_04_A1.sh
 ```
 
-- Select `1. Deploy aiDAPTIV+`
+- Select `1. Deploy aiDAPTIV`
 - If prompted, you can optionally choose to update firmware (`FW Update`)
 - On success, an `aiDAPTIV2/` folder will appear on your Desktop
 
@@ -274,7 +274,7 @@ bash setup_vNXUN_2_04_A1.sh
 ---
 ### 🐳 Docker Installation (Alternative Setup)
 
-> If you prefer to install aiDAPTIVLink in an isolated container environment, you can use the Docker method instead of native installation.
+> If you prefer to install aiDAPTIV middleware in an isolated container environment, you can use the Docker method instead of native installation.
 
 ---
 
@@ -392,7 +392,7 @@ Expected:
 ```bash
 phisonai2 -v
 ```
-Expected output: aiDAPTIVLink vNXUN_2_04_A1
+Expected output: aiDAPTIV middleware vNXUN_2_04_A1
 
 ---
 
@@ -444,7 +444,7 @@ Expected:
 
 ---
 
-✅ If all tests pass, aiDAPTIVLink is ready for training or inference!
+✅ If all tests pass, aiDAPTIV middleware is ready for training or inference!
 
 ---
 _Last updated for aiDAPTIV Middleware v2.0.4 (NXUN_2_04_A1) — Ubuntu 24.04.3 LTS, Kernel 6.14+._

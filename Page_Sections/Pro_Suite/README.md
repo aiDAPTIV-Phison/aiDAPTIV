@@ -1,6 +1,6 @@
-# aiDAPTIV+ Pro Suite 2.0
+# aiDAPTIV Pro Suite 2.0
 
-The **aiDAPTIV+ Pro Suite** is a no-code, full-stack workflow platform that makes it easy to manage every stage of your local LLM projects from dataset preparation to deployment.
+**Pro Suite** is a no-code, full-stack workflow platform that makes it easy to manage every stage of your local LLM projects from dataset preparation to deployment.
 
 With Pro Suite, you can:
 - Generate training datasets from PDFs or plain text.
@@ -23,9 +23,9 @@ Choose the guide that matches your GPU and OS setup:
 
 ## 🎓 Learn & Use the Pro Suite
 
-### 📺 aiDAPTIV+ Pro Suite Video Guides
+### 📺 Pro Suite Video Guides
 A full video playlist is available here:  
-👉 **[YouTube Playlist - aiDAPTIV+ Pro Suite Guide](https://www.youtube.com/playlist?list=PLm1ac1cNXKiMe_5LJpvFGMwXiRKSgHw6M)**
+👉 **[YouTube Playlist - Pro Suite Guide](https://www.youtube.com/playlist?list=PLm1ac1cNXKiMe_5LJpvFGMwXiRKSgHw6M)**
 
 Below are the individual videos:
 
@@ -35,7 +35,7 @@ Below are the individual videos:
 4. **[Pro Suite Finetune](https://youtu.be/qbJ1gtBQFdE)**
 
 ### 🧪 GUI-Based Fine-tune & Inference Tutorial
-For a step-by-step workflow using the Pro Suite GUI (fine-tuning + inference), visit:
+For a step-by-step workflow using Pro Suite (fine-tuning + inference), visit:
 
 ➡️ **[Fine-tune & Inference Guide - aiDAPTIV Training Course](https://github.com/aiDAPTIV-Phison/aiDAPTIV-Training-Course/tree/main/2-GUI-Based/03-fine-tune)**
 
@@ -43,7 +43,7 @@ For a step-by-step workflow using the Pro Suite GUI (fine-tuning + inference), v
 
 ## 🧭 Suite Overview
 
-Each tab in the Pro Suite GUI corresponds to a stage of the AI workflow:
+Each tab in Pro Suite corresponds to a stage of the AI workflow:
 
 - **Dataset** → Prepare and manage your training data. Use **aiDAPTIVGuru** to automatically convert PDFs and text into structured JSON Q&A pairs.
 - **Finetune** → Fine-tune supported pretrained models (e.g., LLaMA) using your datasets. Configure training parameters directly in the GUI.
@@ -57,7 +57,7 @@ Each tab in the Pro Suite GUI corresponds to a stage of the AI workflow:
 
 ## 🎯 Why Use Pro Suite?
 
-With aiDAPTIV+ Pro Suite, you can complete the **entire fine-tuning workflow without writing a single line of code**:
+With Pro Suite, you can complete the **entire fine-tuning workflow without writing a single line of code**:
 
 1. Upload a dataset (PDF → JSON Q&A auto-generation).  
 2. Fine-tune a model using your dataset.  

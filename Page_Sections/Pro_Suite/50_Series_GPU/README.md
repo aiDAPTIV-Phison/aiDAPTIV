@@ -1,6 +1,6 @@
 # Installation (For NVIDIA 50‑Series GPUs)
 
-This README explains how to install **aiDAPTIV+ Pro Suite 2.0** for NVIDIA 50‑series GPUs (5060Ti, 5070Ti, 5080).
+This README explains how to install **Pro Suite 2.0** for NVIDIA 50‑series GPUs (5060Ti, 5070Ti, 5080).
 
 ---
 
@@ -177,7 +177,7 @@ sudo ./install.sh -c
 
 **Menu Option 0 – Install Pro Suite:**
 
-* Select **aiDAPTIVCache** SSD.
+* Select **Pascari AI-Series cache memory** SSD.
 * If LVM already exists, remove it first (see Appendix A.1).
 * After install, if error appears:
 
@@ -195,7 +195,7 @@ sudo systemctl restart docker
 
 ### 🐞 Troubleshooting (Appendix A)
 
-* **aiDAPTIVCache Occupied**: Check VG name (`/dev/prosuite-vg/prosuite-rd`), remove incorrect RAID, or delete boot partition entry in `/etc/fstab`. Use `sudo lvremove /dev/ai/ai` if needed.
+* **Pascari AI-Series cache memory Occupied**: Check VG name (`/dev/prosuite-vg/prosuite-rd`), remove incorrect RAID, or delete boot partition entry in `/etc/fstab`. Use `sudo lvremove /dev/ai/ai` if needed.
 * **Permission Issues**:
 
   * Method 1: Add sandbox config `/etc/apt/apt.conf.d/10sandbox` → `APT::Sandbox::User "root";`

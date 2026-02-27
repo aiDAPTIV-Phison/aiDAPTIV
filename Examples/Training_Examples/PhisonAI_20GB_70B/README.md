@@ -1,6 +1,6 @@
 # 🧠 PhisonAI 70B Fine-Tuning (Meta-Llama-3.1-70B-Instruct)
 
-This guide fine-tunes **Meta-Llama-3.1-70B-Instruct** on **aiDAPTIV+** using the **Dahoas/rm-static** dataset.
+This guide fine-tunes **Meta-Llama-3.1-70B-Instruct** on **aiDAPTIV** using the **Dahoas/rm-static** dataset.
 
 You can run this example in **three ways**:
 
@@ -18,13 +18,13 @@ This fine-tuning example was verified on the following system configuration:
 
 | Component | Specification |
 |----------|----------------|
-| **aiDAPTIV+ SSD** | 2 TB Phison AI100 |
+| **Pascari AI-Series cache memory** | 2 TB Phison AI100 |
 | **GPU** | 2 × NVIDIA RTX 4000 ADA (20 GB) |
 | **System Memory (DRAM)** | 128 GB |
 | **Host Environment** | Ubuntu 24.04.3 |
-| **aiDAPTIV+ Stack Version** | `vNXUN_2_04_A1` |
+| **aiDAPTIV Stack Version** | `vNXUN_2_04_A1` |
 
-> ⚠️ **70B is large.** This config assumes **aiDAPTIV+ NVMe offload** is available and properly configured.  
+> ⚠️ **70B is large.** This config assumes **aiDAPTIV NVMe offload** is available and properly configured.  
 > If you hit OOM or instability, reduce batch size further (see notes in `exp_config.yaml`).
 
 ---
@@ -32,13 +32,13 @@ This fine-tuning example was verified on the following system configuration:
 ## 1) Prerequisites (All Methods)
 
 - NVIDIA GPU with drivers installed  
-- NVMe SSD mounted (e.g., `/mnt/nvme0`) for aiDAPTIV+ cache  
+- NVMe SSD mounted (e.g., `/mnt/nvme0`) for aiDAPTIV cache  
 - 70B model files available at (or symlinked to):  
   `/home/{username}/workspace/models/Meta-Llama-3.1-70B-Instruct`  
 - This example folder downloaded locally (configs + scripts), such as:
 
 ```text
-https://github.com/atp224/aiDAPTIVTestPage/tree/main/Repository_Files/Training_Examples/PhisonAI_20GB_70B
+https://github.com/aiDAPTIV-Phison/aiDAPTIV/tree/main/Examples/Training_Examples/PhisonAI_20GB_70B
 ```
 
 Open a terminal inside this folder before proceeding.
@@ -331,6 +331,6 @@ docker run --rm -it   --gpus "device=0"   --ipc=host --privileged=true   --ulimi
 
 - The **native VENV method** is recommended for most users.  
 - 70B models require careful tuning of batch size and sequence length.  
-- aiDAPTIV+ offload enables large-model training even with limited GPU VRAM.  
+- aiDAPTIV offload enables large-model training even with limited GPU VRAM.  
 
-✅ Once you see training iterations and loss values in the log file, your **aiDAPTIV+ 70B fine-tuning setup is working correctly**.
+✅ Once you see training iterations and loss values in the log file, your **aiDAPTIV 70B fine-tuning setup is working correctly**.

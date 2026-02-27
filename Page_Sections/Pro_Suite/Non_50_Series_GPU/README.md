@@ -1,6 +1,6 @@
 # Installation
 
-This README explains how to install **aiDAPTIV+ Pro Suite 2.0** for these [Compatible GPUs](../../../README.md#-compatible-gpus).
+This README explains how to install **Pro Suite 2.0** for these [Compatible GPUs](../../../README.md#-compatible-gpus).
 
 ---
 
@@ -73,7 +73,7 @@ sudo ./install.sh
 
 #### Step 4: Select Installation (Menu Option 0)
 
-* Available SSD(s) will be listed—choose the SSD for **aiDAPTIVCache**.
+* Available SSD(s) will be listed—choose the SSD for **Pascari AI-Series cache memory**.
 * If LVM has already been created manually, remove it before proceeding.
 * The program installs required apt packages and pulls Docker images.
 * After completion, the installer will display the **Pro Suite Web URL(s)**.

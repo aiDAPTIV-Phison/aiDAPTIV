@@ -1,6 +1,6 @@
-# 🧩 aiDAPTIV+ Training Examples
+# 🧩 aiDAPTIV Training Examples
 
-This folder contains example training and inference setups for **Phison aiDAPTIV+**, demonstrating fine-tuning and inference workflows across different model types and sizes.
+This folder contains example training and inference setups for **Phison aiDAPTIV**, demonstrating fine-tuning and inference workflows across different model types and sizes.
 
 Each subfolder includes ready-to-run configuration files (`env_config.yaml`, `exp_config.yaml`, and dataset configs) along with detailed setup instructions.
 
@@ -9,7 +9,7 @@ Each subfolder includes ready-to-run configuration files (`env_config.yaml`, `ex
 ## 📘 Available Examples
 
 ### 🧠 **PhisonAI 20GB–8B Fine-Tuning**
-Fine-tunes **Meta-Llama-3.1-8B-Instruct** using the **Dahoas/rm-static** dataset on aiDAPTIV+.
+Fine-tunes **Meta-Llama-3.1-8B-Instruct** using the **Dahoas/rm-static** dataset on aiDAPTIV.
 
 - Example path:  
   [`PhisonAI_20GB_8B/`](./PhisonAI_20GB_8B)
@@ -17,7 +17,7 @@ Fine-tunes **Meta-Llama-3.1-8B-Instruct** using the **Dahoas/rm-static** dataset
 ---
 
 ### 🚀 **PhisonAI 70B Fine-Tuning**
-Fine-tunes the larger **Meta-Llama-3.1-70B-Instruct** using the **Dolly Creative Writing**  dataset on aiDAPTIV+.
+Fine-tunes the larger **Meta-Llama-3.1-70B-Instruct** using the **Dolly Creative Writing**  dataset on aiDAPTIV.
 
 - Example path:  
   [`PhisonAI_20GB_70B/`](./PhisonAI_20GB_70B)
@@ -41,7 +41,7 @@ Each example folder includes its own `README.md` with detailed setup and command
 
 Before running, ensure:
 - Docker and NVIDIA Container Toolkit are installed
-- aiDAPTIV+ environment is active (aiDAPTIVLink + aiDAPTIVCache)
+- aiDAPTIV environment is active (aiDAPTIV middleware + Pascari AI-Series cache memory)
 - The correct Docker image is available:
   - `licensesp/aidaptiv:vNXUN_2_04_A1`
 
@@ -72,7 +72,7 @@ Training_Examples/
 ---
 ## 🧾 Notes
 
-- All examples assume access to aiDAPTIV+ infrastructure with compatible SSD caching.
+- All examples assume access to aiDAPTIV infrastructure with compatible SSD caching.
 - Model directories (e.g., `/usr/local/models/`) should already contain the required base models.
 - Adjust `num_gpus` and NVMe mount paths in each config based on your local system.
 

@@ -1,6 +1,6 @@
 # 🧠 PhisonAI 8B Fine-Tuning (Meta-Llama-3.1-8B-Instruct)
 
-This guide fine-tunes **Meta-Llama-3.1-8B-Instruct** on **aiDAPTIV+** using the **Dahoas/rm-static** dataset.
+This guide fine-tunes **Meta-Llama-3.1-8B-Instruct** on **aiDAPTIV** using the **Dahoas/rm-static** dataset.
 
 You can run this example in **three ways**:
 
@@ -18,24 +18,24 @@ This fine-tuning example was verified on the following system configuration:
 
 | Component | Specification |
 |----------|----------------|
-| **aiDAPTIV+ SSD** | 320 GB Phison AI100 |
+| **Pascari AI-Series cache memory** | 320 GB Phison AI100 |
 | **GPU** | 2 × NVIDIA RTX 4000 ADA (20 GB each) |
 | **System Memory (DRAM)** | 128 GB |
 | **Host Environment** | Ubuntu 24.04.3 |
-| **aiDAPTIV+ Stack Version** | `vNXUN_2_04_A1` |
+| **aiDAPTIV Stack Version** | `vNXUN_2_04_A1` |
 
 ---
 
 ## 1) Prerequisites (All Methods)
 
 - NVIDIA GPU with drivers installed  
-- NVMe SSD mounted (e.g., `/mnt/nvme0`) for aiDAPTIV+ cache  
+- NVMe SSD mounted (e.g., `/mnt/nvme0`) for Pascari AI-Series cache memory  
 - Model files available at (or symlinked to):  
   ` /home/{username}/workspace/models/Meta-Llama-3.1-8B-Instruct`  
 - This example folder downloaded locally (configs + scripts):
 
 ```text
-https://github.com/atp224/aiDAPTIVTestPage/tree/main/Repository_Files/Training_Examples/PhisonAI_20GB_8B
+https://github.com/aiDAPTIV-Phison/aiDAPTIV/tree/main/Examples/Training_Examples/PhisonAI_20GB_8B
 ```
 
 Open a terminal in that folder before proceeding.
@@ -388,4 +388,4 @@ docker stop "$CONTAINER_NAME"
 - Docker-based methods are provided for environments where native install is restricted or containerization is required.  
 - You can adjust batch size, sequence length, epochs, and LoRA parameters in `exp_config.yaml` to tune performance and memory use.
 
-✅ Once you see training iterations and loss values in the log file, your **aiDAPTIV+ 8B fine-tuning setup is working correctly**.
+✅ Once you see training iterations and loss values in the log file, your **aiDAPTIV 8B fine-tuning setup is working correctly**.

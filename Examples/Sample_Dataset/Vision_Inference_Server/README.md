@@ -1,6 +1,6 @@
 # Vision Inference Server Sample Dataset
 
-This folder contains the **sample image dataset** used by the [aiDAPTIV+ Vision Inference Sample](../../Training_Examples/Vision_Inference_Server/README.md).
+This folder contains the **sample image dataset** used by the [aiDAPTIV Vision Inference Sample](../../Training_Examples/Vision_Inference_Server/README.md).
 
 The dataset provides example product packaging images for quick **vision-language model (VLM) inference testing** using `Qwen2.5-VL-3B-Instruct` and `vLLM`.
 

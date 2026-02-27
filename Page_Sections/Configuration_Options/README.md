@@ -2,7 +2,7 @@
 
 ## YAML Options
 
-aiDAPTIVLink uses YAML files to define datasets, environment variables, and training parameters.  
+aiDAPTIV middleware uses YAML files to define datasets, environment variables, and training parameters.  
 These files must follow the expected format for smooth operation.
 
 **Common Keys Across Datasets**
@@ -59,7 +59,7 @@ These options are typically set in the `project.ini` or YAML files and passed au
 
 - `num_gpus` → Number of GPUs to use  
 - `model_name_or_path` → Path to pretrained model  
-- `nvme_path` → Path to aiDAPTIVCache device (e.g., `/mnt/nvme0`)  
+- `nvme_path` → Path to Pascari AI-Series cache memory device (e.g., `/mnt/nvme0`)  
 - `seq_len` → Sequence length for training (e.g., `2048`)  
 - `start_bs` / `end_bs` → Batch size range for testing  
 - `training_hour` → Expected training time  
@@ -71,7 +71,7 @@ These options are typically set in the `project.ini` or YAML files and passed au
 
 ## Dataset Considerations
 
-aiDAPTIVLink supports multiple dataset strategies for training, evaluation, and inference.  
+aiDAPTIV middleware supports multiple dataset strategies for training, evaluation, and inference.  
 Datasets can be local or pulled directly from Hugging Face, and must be defined in YAML configuration files.
 
 ---
@@ -158,15 +158,15 @@ Supported formats: .json or .csv with references to image files.
 
 ## Importance of the Cache
 
-aiDAPTIVCache is a **core requirement** for scaling LLM training and inference with aiDAPTIVLink.  
+Pascari AI-Series cache memory is a **core requirement** for scaling LLM training and inference with aiDAPTIV middleware.  
 It provides **high-endurance SSD storage that acts as extended GPU memory (VRAM)**, enabling larger models to run efficiently even when GPU VRAM is limited.
 
 ---
 
 ### Model Size Requirements
-The amount of DRAM and aiDAPTIVCache needed scales with the size of the LLM:
+The amount of DRAM and Pascari AI-Series cache memory needed scales with the size of the LLM:
 
-| LLM Model Size | DRAM Requirement | aiDAPTIVCache Capacity | aiDAPTIVCache Count |
+| LLM Model Size | DRAM Requirement | Pascari AI-Series cache memory Capacity | Pascari AI-Series cache memory Count |
 |----------------|------------------|-------------------------|----------------------|
 | ≤ 13B          | 64 GB            | 1 TB                   | 1 |
 | < 34B          | 64 GB            | 1 TB                   | 2 |
@@ -181,9 +181,9 @@ The amount of DRAM and aiDAPTIVCache needed scales with the size of the LLM:
 ---
 
 ### PCIe Lane Planning
-CPU PCIe lanes must support both GPUs and aiDAPTIVCache devices:
+CPU PCIe lanes must support both GPUs and Pascari AI-Series cache memory devices:
 
-**Total PCIe lanes = (GPU count × 16) + (aiDAPTIVCache count × 4)**
+**Total PCIe lanes = (GPU count × 16) + (Pascari AI-Series cache memory count × 4)**
 
 **Example:**  
 For 4 GPUs and a 70B LLM model (which requires 2 caches):  
@@ -192,10 +192,10 @@ Your CPU and motherboard must provide at least **72 PCIe lanes** for optimal per
 
 ---
 
-### Why aiDAPTIVCache Matters
+### Why Pascari AI-Series cache memory Matters
 - **VRAM Extension** – Provides additional memory capacity beyond GPU VRAM by leveraging high-endurance SSDs.  
 - **Performance Scaling** – Supports larger batch sizes and stable training throughput for big models.  
 - **Balanced Architecture** – Cache must be paired with sufficient DRAM, GPU power, and PCIe bandwidth; an imbalance can lead to bottlenecks or training failures.  
 
-✅ **Bottom line:** aiDAPTIVCache is not optional, it **defines the maximum model size and efficiency** your system can realistically handle.
+✅ **Bottom line:** Pascari AI-Series cache memory is not optional, it **defines the maximum model size and efficiency** your system can realistically handle.
 

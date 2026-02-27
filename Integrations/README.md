@@ -1,5 +1,5 @@
-# 🧩 aiDAPTIV+ Integrations
-This directory lists the **open-source integrations** that work with **Phison aiDAPTIV+** across RAG, inference, workflow orchestration, and local UI tools.
+# 🧩 aiDAPTIV Integrations
+This directory lists the **open-source integrations** that work with **Phison aiDAPTIV** across RAG, inference, workflow orchestration, and local UI tools.
 
 ---
 

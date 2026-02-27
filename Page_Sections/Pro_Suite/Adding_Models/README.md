@@ -1,4 +1,4 @@
-# aiDAPTIV+ Pro Suite 2.0  
+# Pro Suite 2.0  
 ## Guide: Accessing and Preparing LLMs from Hugging Face
 
 📄 **Download PDF version:**  
@@ -10,16 +10,16 @@ This document explains how to:
 - Request access to Meta Llama 3.x models  
 - Generate a Hugging Face access token  
 - Download LLMs using Linux CLI  
-- Prepare and import models into aiDAPTIV+ Pro Suite  
+- Prepare and import models into Pro Suite  
 
-Because of licensing restrictions, aiDAPTIV+ systems cannot ship with most LLMs pre-installed.  
+Because of licensing restrictions, aiDAPTIV systems cannot ship with most LLMs pre-installed.  
 This guide walks you through safely downloading and enabling them for fine-tuning and inference.
 
 ---
 
 ## 1. Introduction
 
-aiDAPTIV+ provides the hardware and software required to fine-tune many of today’s most widely used LLMs.  
+aiDAPTIV provides the hardware and software required to fine-tune many of today’s most widely used LLMs.  
 However, many models—such as Meta’s Llama models—require free licensing approval before use.
 
 This guide uses **Llama 3.x** as the example model family.
@@ -146,7 +146,7 @@ Use this if you plan to deploy models to multiple systems.
 1. Navigate to the model folder  
 2. Select all files  
 3. Compress them into a `.zip` archive  
-4. Open aiDAPTIV+ in your browser  
+4. Open aiDAPTIV in your browser  
 5. Go to **Models**  
 6. Drag-and-drop the ZIP file or click to upload  
 7. Wait for the system to decompress and install the model
@@ -157,7 +157,7 @@ Use this if you plan to deploy models to multiple systems.
 
 Once uploaded or copied:
 
-1. Open aiDAPTIV+ Pro Suite  
+1. Open Pro Suite  
 2. Navigate to **Models**  
 3. Find your newly added model  
 4. Check the **Available** box to load it into memory  
@@ -174,10 +174,10 @@ This guide covered:
 - Requesting access to restricted Meta Llama models  
 - Generating a read-only access token  
 - Downloading LLMs using Linux commands  
-- Preparing models for aiDAPTIV+  
+- Preparing models for aiDAPTIV 
 - Activating models for use  
 
-You now have everything required to bring your own LLMs into aiDAPTIV+.
+You now have everything required to bring your own LLMs into aiDAPTIV.
 
 ---
 

@@ -1,10 +1,10 @@
-# aiDAPTIV+ Vision Inference Sample
+# aiDAPTIV Vision Inference Sample
 
 This repo contains a **minimal, runnable sample** showing how to spin up a local **vLLM OpenAI-compatible inference server** for **Qwen2.5-VL-3B-Instruct** and run quick **image-based inference tests**.
 
-It’s designed as a lightweight **sanity-check / sample workload** for aiDAPTIV+, demonstrating how SSD-backed storage can extend memory capacity for vision-language inference.
+It’s designed as a lightweight **sanity-check / sample workload** for aiDAPTIV, demonstrating how SSD-backed storage can extend memory capacity for vision-language inference.
 
-> If you’re using aiDAPTIV+ for SSD-backed VRAM expansion, follow the same steps—vLLM will load the model while your storage stack handles the heavy lifting.
+> If you’re using aiDAPTIV for SSD-backed VRAM expansion, follow the same steps—vLLM will load the model while your storage stack handles the heavy lifting.
 
 ---
 
@@ -148,4 +148,4 @@ docker stop vllm-qwen2_5-vl3b
 - No fine-tuning or tool calling is performed.  
 - The sample images are for demonstration purposes only.  
 - To try other models, change `--model` to any supported VLM on Hugging Face.  
-- This example is intended for quick local testing and validation of aiDAPTIV+ inference setups.
+- This example is intended for quick local testing and validation of aiDAPTIV inference setups.

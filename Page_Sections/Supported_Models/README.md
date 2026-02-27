@@ -2,7 +2,7 @@
 
 ## 📦 Supported Model Formats
 
-aiDAPTIVLink currently supports the following model weight file formats for loading pretrained models:
+aiDAPTIV middleware currently supports the following model weight file formats for loading pretrained models:
 
 - `.safetensors`
 - `.bin`
@@ -12,13 +12,13 @@ aiDAPTIVLink currently supports the following model weight file formats for load
 
 > ⚠️ Formats such as `.gguf` (used by llama.cpp) are **not** currently supported.
 
-When `weight_file_format` is not explicitly specified, aiDAPTIVLink will automatically detect the available format in the model directory.
+When `weight_file_format` is not explicitly specified, aiDAPTIV middleware will automatically detect the available format in the model directory.
 
 Only PyTorch-compatible models are supported in this version.
 
 ## ✅ Supported Models
 
-The following models have been validated to run with aiDAPTIVLink. Triton support indicates whether the model can be deployed using NVIDIA Triton Inference Server.
+The following models have been validated to run with aiDAPTIV middleware. Triton support indicates whether the model can be deployed using NVIDIA Triton Inference Server.
 
 | #  | Task                    | Model Name                        | Triton Support |
 |----|-------------------------|-----------------------------------|----------------|

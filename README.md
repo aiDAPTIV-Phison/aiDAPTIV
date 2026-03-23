@@ -7,15 +7,15 @@
 
 <a href="https://discord.gg/mJ3DtVWVCn"><img src="https://github.com/aiDAPTIV-Phison/aiDAPTIV/blob/571b1d5108ea57f87ec3c9f40a9d38f2e028e166/assets/Discord_button.png" width="165"></a>
 
-### Storage-accelerated LLM inference and fine-tuning beyond GPU VRAM limits
+### Storage-Accelerated LLM inference and Fine-Tuning beyond GPU VRAM limits
 </div>
 
-**This is the official GitHub repository for Phison’s aiDAPTIV technology platform.**  
+**This is the official GitHub repository for Phison Pascari's aiDAPTIV platform.**  
 aiDAPTIV is a storage-accelerated AI infrastructure platform designed to remove GPU memory bottlenecks during large language model (LLM) training and inference by using high-performance NVMe SSDs as a fast extension to GPU VRAM.
 
 This enables developers, researchers, and enterprises to run larger models, longer context windows, and more demanding workloads on existing on-prem hardware without relying on cloud infrastructure.
 
-### What you’ll find in this repository
+### What you’ll find in this repository:
 - Installation and deployment guides for aiDAPTIV memory management middleware
 - LLM inference and fine-tuning workflows (PyTorch, vLLM, llama.cpp)
 - Documentation on KV-cache offload and SSD-based memory tiering
@@ -24,39 +24,39 @@ This enables developers, researchers, and enterprises to run larger models, long
 
 ## What is aiDAPTIV middleware?
 
-**aiDAPTIV middleware** is Phison’s middleware layer in the **aiDAPTIV** stack that lets you train and run larger language models on your own hardware by leveraging high‑performance SSD caching alongside your GPU VRAM. In practice, it minimizes “out‑of‑memory” barriers for fine‑tuning and keeps I/O efficient during inference.
+**aiDAPTIV memory management middleware** is Phison’s middleware layer in the **aiDAPTIV** stack that lets you train and run larger language models on your own hardware by leveraging high‑performance SSD caching alongside your GPU VRAM. In practice, it minimizes “out‑of‑memory” barriers for fine‑tuning and keeps I/O efficient during inference.
 
-**Key capabilities**
+**Key capabilities:**
 - **Scale beyond VRAM limits:** Use fast NVMe storage as an extension to GPU memory so you can work with bigger models or longer context windows on the same hardware.
 - **On‑prem by design:** Keep data local to your workstation, server, or lab cluster, no cloud dependency.
 - **Minimal code changes:** Designed to drop into existing PyTorch workflows with little or no refactoring.
-- **Lower time‑to‑first‑token (TTFT) at inference:** Storage‑aware scheduling reduces cold‑start stalls so responses begin faster.  
+- **Reduced time to first token (TTFT) at inference:** Storage‑aware scheduling reduces cold‑start stalls so responses begin faster.  
   > Note: aiDAPTIV removes memory bottlenecks for training, but it is **not** intended to speed up the core math of fine‑tuning itself.
 
 ---
 
-## How to obtain
+## How to obtain aiDAPTIV middleware
 
 aiDAPTIV middleware is distributed as part of the **aiDAPTIV** offering.
 
-- **Commercial availability:** Included with purchases of **Pascari AI-Series cache memory** (Phison’s NVMe caching solution) for workstations and servers.  
-- **Evaluation / pilots:** Reach out for a free trial of aiDAPTIV.
+- **Commercial availability:** Included with purchases of **aiDAPTIV cache memory** (Phison’s NVMe caching solution) for workstations and servers.  
+- **Evaluation/pilots:** Reach out for a free trial of aiDAPTIV.
 - **Academic programs:** Universities and student clubs can inquire about our outreach program for on‑prem testing.
 
 ---
 **Information on how to install aiDAPTIV middleware is found [here](Page_Sections/Installation/README.md)!**
 ---
 
-## System Requirements
+## System requirements
 
-To ensure optimal performance and compatibility, aiDAPTIV middleware requires the following software and hardware components:
+To ensure optimal performance and compatibility, aiDAPTIV middleware requires the following software and hardware components.
 
-## 🧠 Operating System Compatibility
+## 🧠 Operating system compatibility
 
 aiDAPTIV middleware is currently supported **only on Linux** systems.
 
-> ✅ **Recommended Distribution:** Ubuntu 24.04.3 LTS (Desktop or Server Edition)  
-> ⚙️ **Kernel Version:** 6.14 or higher  
+> ✅ **Recommended distribution:** Ubuntu 24.04.3 LTS (Desktop or Server Edition)  
+> ⚙️ **Kernel version:** 6.14 or higher  
 > 🚫 **Not supported:** Windows or macOS
 
 ---
@@ -106,7 +106,7 @@ aiDAPTIV middleware and aiDAPTIV have been validated with the following NVIDIA G
 
 ---
 
-### 💻 Laptop GPUs
+### 💻 Notebook GPUs
 
 | Product Name                     | Architecture | Memory Type | Capacity | Bandwidth | FP16 TFLOPS | SMs | Power (TDP) | Notes |
 |---------------------------------|--------------|-------------|-----------|------------|--------------|-----|--------------|-------|
@@ -117,26 +117,26 @@ aiDAPTIV middleware and aiDAPTIV have been validated with the following NVIDIA G
 
 ---
 
-### ⚙️ Compatibility Notes
+### ⚙️ Compatibility notes
 
 - **Minimum VRAM for inference:** 20–24 GB (for Llama-3 8B-class models).  
-- **Minimum VRAM for fine-tuning:** 16 GB (requires Pascari AI-Series cache memory SSD tiering).  
-- **Interface:** PCIe Gen 4 ×16 recommended; PCIe Gen 3 supported with reduced throughput.  
+- **Minimum VRAM for fine-tuning:** 16 GB (requires aiDAPTIV cache memory SSD tiering).  
+- **Interface:** PCIe Gen4x16 recommended; PCIe Gen3 supported with reduced throughput.  
 - **Architectures validated:** Blackwell (B100 / RTX 50 Series), Hopper (H100/H200), Ada Lovelace (RTX 40 Series), Ampere (RTX 30 Series).  
 - **In progress:** AMD Radeon Instinct and Intel Gaudi series under internal testing.
 
 > *Specifications validated from Phison Technical Marketing internal testing and official NVIDIA product documentation as of October 2025.*
 
 ---
-## 🧠 Inference & Training Model Compatibility
+## 🧠 Inference & training model compatibility
 
-**aiDAPTIV** extends GPU memory by tiering model weights and activations across **GPU VRAM**, **system RAM**, and **Pascari AI-Series cache memory SSDs**.  
+**aiDAPTIV** extends GPU memory by tiering model weights and activations across **GPU VRAM**, **system RAM**, and **aiDAPTIV cache memory SSDs**.  
 This lets you **fine-tune and run larger models** on affordable hardware.
 
 - **Training:** total usable memory ≈ GPU VRAM + system RAM + Pascari AI-Series cache memory.  
 - **Inference:** model weights + KV cache must fit primarily in **GPU VRAM** (can be reduced with quantization).
 
-### 🧩 Model VRAM & KV Cache Requirements
+### 🧩 Model VRAM & KV cache requirements
 
 | Model | Precision | GPU VRAM | KV Cache | Total VRAM Required |
 |:------|:----------|:---------|:---------|:--------------------|
@@ -147,7 +147,7 @@ This lets you **fine-tune and run larger models** on affordable hardware.
 | Llama-3.1-70B | FP16 | 140 GB | 39 GB | 179 GB |
 | Llama-3.1-70B | Q4 | 35 GB | 9.75 GB | 44.75 GB |
 
-### 💾 Recommended Pascari AI-Series cache memory Drive Capacity
+### 💾 Recommended aiDAPTIV cache memory Drive Capacity
 
 | SSD Capacity | Max Model Size Supported | Recommended System RAM |
 |:-------------|:--------------------------|:-----------------------|
@@ -180,7 +180,7 @@ aiDAPTIV middleware has been tested with the following high-performance processo
 > **Note:** The CPUs listed above are ones Phison has validated internally.  
 > In practice, aiDAPTIV can run on a much broader range of processors.  
 > From a hardware standpoint, the key requirements are:  
-> - **PCIe Gen 4.0 or better**  
+> - **PCIe Gen4 or better**  
 > - **≥ 8 CPU cores**  
 > - **At least 24 PCIe lanes** (16 for a GPU + 2×4 for SSDs)  
 >  
@@ -188,24 +188,24 @@ aiDAPTIV middleware has been tested with the following high-performance processo
 
 ---
 
-### ✅ Compatible aiDAPTIV middleware Caching Device
+### Compatible aiDAPTIV middleware caching device
 
-aiDAPTIV middlewarerequires the use of an **Pascari AI-Series cache memory** SSD for storage-accelerated training and inference.
+aiDAPTIV middleware requires the use of an **aiDAPTIV cache memory** SSD for storage-accelerated training and inference.
 
 | Model     | Form Factor | Interface | Notes                         |
 |-----------|-------------|-----------|-------------------------------|
 | AI100E    | U.2 or M.2  | PCIe 4.0  | Required for aiDAPTIV middleware use |
 
-> *Ensure the AI100E SSD is properly installed in a PCIe Gen 4 compatible slot for peak performance.*
+> *Ensure the AI100E SSD is properly installed in a PCIe Gen4 compatible slot for peak performance.*
 
 ---
 
-## Where to Buy
+## Where to buy
 
 aiDAPTIV products are available through regional distributors.  
 Select your country or territory below to view purchase options.
 
-### 🇺🇸 United States
+### United States
 
 - [AI Training PC](https://www.neweggbusiness.com/product/product.aspx?item=9b-83-367-001&tpk=9b-83-367-001)  
 - [AI Workstation](https://www.neweggbusiness.com/product/product.aspx?item=9b-83-367-003&tpk=9b-83-367-003)  
@@ -215,16 +215,16 @@ Select your country or territory below to view purchase options.
 - [AI100E 1 TB U.2](https://www.neweggbusiness.com/product/product.aspx?item=9b-20-979-051&tpk=9b-20-979-051)  
 - [AI100E 2 TB U.2](https://www.neweggbusiness.com/product/product.aspx?item=9b-20-979-054&tpk=9b-20-979-054)  
 
-### 🌏 Asia Pacific
+### Asia Pacific
 
 Please contact your **local Phison partners** for aiDAPTIV inquiries in regions outside the US (TW, CN, MY, ID, JP).  
-*Note: aiDAPTIV Cache (SSD) is only sold through System Integrators as part of a full AI Training PC / Workstation / Server solution.*  
+*Note: aiDAPTIV cache memory SSDs are only sold through Systems Integrators as part of a full AI Training PC, workstation, or server solution.*  
 
 ---
 
 **Get in touch**
-- 📩 **Sales/General**: `peter_cmaylo@phison.com`
-- 🧪 **Free Trial**: `aaron_pham@phison.com`
+- 📩 **Sales or general questions**: `peter_cmaylo@phison.com`
+- 🧪 **Free trial**: `aaron_pham@phison.com`
 - 🎓 **University outreach**: `aaron_pham@phison.com`
 
 > After you receive access, follow the repo’s [Installation](Page_Sections/Installation/README.md) section to integrate aiDAPTIV middleware into your training or inference workflow.

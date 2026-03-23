@@ -51,7 +51,7 @@ aiDAPTIV middleware is distributed as part of the **aiDAPTIV** offering.
 
 To ensure optimal performance and compatibility, aiDAPTIV middleware requires the following software and hardware components.
 
-## 🧠 Operating system compatibility
+## Operating system compatibility
 
 aiDAPTIV middleware is currently supported **only on Linux** systems.
 
@@ -61,14 +61,14 @@ aiDAPTIV middleware is currently supported **only on Linux** systems.
 
 ---
 
-## ✅ Supported NVIDIA GPUs
+## Supported NVIDIA GPUs
 
 aiDAPTIV middleware and aiDAPTIV have been validated with the following NVIDIA GPUs.  
 > *Note: PCIe Gen 4 ×16 bandwidth is recommended for optimal I/O throughput.*
 
 ---
 
-### 🧩 Professional GPUs
+### Professional GPUs
 
 | Product Name                                      | Architecture | Memory Type | Capacity | Bandwidth | FP16 TFLOPS | SMs | Power (TDP) | Notes |
 |--------------------------------------------------|--------------|-------------|-----------|------------|--------------|-----|--------------|-------|
@@ -89,7 +89,7 @@ aiDAPTIV middleware and aiDAPTIV have been validated with the following NVIDIA G
 
 ---
 
-### 🎮 Consumer GPUs
+### Consumer GPUs
 
 | Product Name                     | Architecture | Memory Type | Capacity | Bandwidth | FP16 TFLOPS | SMs | Power (TDP) | Notes |
 |---------------------------------|--------------|-------------|-----------|------------|--------------|-----|--------------|-------|
@@ -106,7 +106,7 @@ aiDAPTIV middleware and aiDAPTIV have been validated with the following NVIDIA G
 
 ---
 
-### 💻 Notebook GPUs
+### Notebook GPUs
 
 | Product Name                     | Architecture | Memory Type | Capacity | Bandwidth | FP16 TFLOPS | SMs | Power (TDP) | Notes |
 |---------------------------------|--------------|-------------|-----------|------------|--------------|-----|--------------|-------|
@@ -117,7 +117,7 @@ aiDAPTIV middleware and aiDAPTIV have been validated with the following NVIDIA G
 
 ---
 
-### ⚙️ Compatibility notes
+### Compatibility notes
 
 - **Minimum VRAM for inference:** 20–24 GB (for Llama-3 8B-class models).  
 - **Minimum VRAM for fine-tuning:** 16 GB (requires aiDAPTIV cache memory SSD tiering).  
@@ -128,7 +128,7 @@ aiDAPTIV middleware and aiDAPTIV have been validated with the following NVIDIA G
 > *Specifications validated from Phison Technical Marketing internal testing and official NVIDIA product documentation as of October 2025.*
 
 ---
-## 🧠 Inference & training model compatibility
+## Inference & training model compatibility
 
 **aiDAPTIV** extends GPU memory by tiering model weights and activations across **GPU VRAM**, **system RAM**, and **aiDAPTIV cache memory SSDs**.  
 This lets you **fine-tune and run larger models** on affordable hardware.
@@ -136,7 +136,7 @@ This lets you **fine-tune and run larger models** on affordable hardware.
 - **Training:** total usable memory ≈ GPU VRAM + system RAM + Pascari AI-Series cache memory.  
 - **Inference:** model weights + KV cache must fit primarily in **GPU VRAM** (can be reduced with quantization).
 
-### 🧩 Model VRAM & KV cache requirements
+### Model VRAM & KV cache requirements
 
 | Model | Precision | GPU VRAM | KV Cache | Total VRAM Required |
 |:------|:----------|:---------|:---------|:--------------------|

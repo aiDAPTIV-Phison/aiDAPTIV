@@ -147,7 +147,7 @@ This lets you **fine-tune and run larger models** on affordable hardware.
 | Llama-3.1-70B | FP16 | 140 GB | 39 GB | 179 GB |
 | Llama-3.1-70B | Q4 | 35 GB | 9.75 GB | 44.75 GB |
 
-### 💾 Recommended aiDAPTIV cache memory Drive Capacity
+### Recommended aiDAPTIV cache memory Drive Capacity
 
 | SSD Capacity | Max Model Size Supported | Recommended System RAM |
 |:-------------|:--------------------------|:-----------------------|
@@ -158,7 +158,7 @@ This lets you **fine-tune and run larger models** on affordable hardware.
 
 ---
 
-### ✅ Compatible CPUs
+### Compatible CPUs
 
 aiDAPTIV middleware has been tested with the following high-performance processors:
 

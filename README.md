@@ -11,8 +11,8 @@
 </div>
 
 **This is the official GitHub repository for Phison Pascari's aiDAPTIV platform.**  
-> **Middleware version:** vNXUN_2_04_A1  
-> **Documentation alignment:** aiDAPTIVLink 2.0 NXUN204.A1 User Manual
+> **Middleware version:** vNXUN_2_05_A1  
+> **Documentation alignment:** aiDAPTIVLink 2.0 NXUN205.A1 User Manual
 
 aiDAPTIV is a storage-accelerated AI infrastructure platform designed to remove GPU memory bottlenecks during large language model (LLM) training and inference by using high-performance NVMe SSDs as a fast extension to GPU VRAM.
 
@@ -29,12 +29,26 @@ This enables developers, researchers, and enterprises to run larger models, long
 
 **aiDAPTIV memory management middleware** is Phison’s middleware layer in the **aiDAPTIV** stack that lets you train and run larger language models on your own hardware by leveraging high‑performance SSD caching alongside your GPU VRAM. In practice, it minimizes “out‑of‑memory” barriers for fine‑tuning and keeps I/O efficient during inference.
 
+> This middleware version (aiDAPTIVLink 2 series) is primarily focused on post-training and fine-tuning workflows. Inference acceleration features (e.g., KV cache offload) are part of aiDAPTIVLink 3.
+
 **Key capabilities:**
 - **Scale beyond VRAM limits:** Use fast NVMe storage as an extension to GPU memory so you can work with bigger models or longer context windows on the same hardware.
 - **On‑prem by design:** Keep data local to your workstation, server, or lab cluster, no cloud dependency.
 - **Minimal code changes:** Designed to drop into existing PyTorch workflows with little or no refactoring.
 - **Reduced time to first token (TTFT) at inference:** Storage‑aware scheduling reduces cold‑start stalls so responses begin faster.  
   > Note: aiDAPTIV removes memory bottlenecks for training, but it is **not** intended to speed up the core math of fine‑tuning itself.
+
+---
+
+## Training Capabilities
+
+aiDAPTIVLink 2 middleware supports the following training features:
+
+- LoRA and full-parameter fine-tuning
+- CPU Adam optimizer support
+- Multi-GPU (1, 2, 4, 8 GPUs) and multi-node training
+- Vision-language model (VLM) support
+- SSD-based GPU memory offload during training
 
 ---
 
@@ -58,9 +72,11 @@ To ensure optimal performance and compatibility, aiDAPTIV middleware requires th
 
 aiDAPTIV middleware is currently supported **only on Linux** systems.
 
-> ✅ **Recommended distribution:** Ubuntu 24.04.3 LTS (Desktop or Server Edition)  
-> ⚙️ **Kernel version:** 6.14 or higher  
-> 🚫 **Not supported:** Windows or macOS
+> **OS:** Ubuntu 24.04.3 LTS  
+> **Kernel:** 6.14+  
+> **NVIDIA Driver:** 580+  
+> **CUDA:** 13.0  
+> **Python:** 3.12  
 
 ---
 
@@ -118,6 +134,7 @@ aiDAPTIV middleware and aiDAPTIV have been validated with the following NVIDIA G
 | **GeForce RTX 4090 Laptop GPU** | Ada Lovelace | GDDR6       | 16 GB     | 576 GB/s   | 343          | 76  | 80–150 W | Mobile |
 | **GeForce RTX 3080 Ti Laptop GPU** | Ampere     | GDDR6       | 16 GB     | 512 GB/s   | 189          | 58  | 80–150 W | Legacy Mobile |
 
+> GPUs should be selected from the Approved Vendor List (AVL) or validated separately for production deployments.
 ---
 
 ### Compatibility notes
@@ -185,7 +202,8 @@ aiDAPTIV middleware has been tested with the following high-performance processo
 > From a hardware standpoint, the key requirements are:  
 > - **PCIe Gen4 or better**  
 > - **≥ 8 CPU cores**  
-> - **At least 24 PCIe lanes** (16 for a GPU + 2×4 for SSDs)  
+> - **PCIe lane requirement guideline:**  
+  Total lanes ≈ (GPU count × 16) + (SSD count × 4)
 >  
 > Most modern Intel and AMD processors released in the last 10 years meet these requirements.  
 
@@ -195,11 +213,10 @@ aiDAPTIV middleware has been tested with the following high-performance processo
 
 aiDAPTIV middleware requires the use of an **aiDAPTIV cache memory** SSD for storage-accelerated training and inference.
 
-| Model     | Form Factor | Interface | Notes                         |
-|-----------|-------------|-----------|-------------------------------|
-| AI100E    | U.2 or M.2  | PCIe 4.0  | Required for aiDAPTIV middleware use |
-
-> *Ensure the AI100E SSD is properly installed in a PCIe Gen4 compatible slot for peak performance.*
+| Model     | Form Factor | Interface | Notes      |
+|-----------|-------------|-----------|------------|
+| AI100E    | U.2 or M.2  | PCIe 4.0  | Supported  |
+| AI200E    | U.2 / EDSFF | PCIe 5.0  | Supported  |
 
 ---
 

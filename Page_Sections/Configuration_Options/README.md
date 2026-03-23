@@ -26,6 +26,9 @@ These files must follow the expected format for smooth operation.
   question_key: [q1, q2, q3]
   answer_key: [a1, a2, a3]
   ```
+
+> Note: Most environments are set up using the aiDAPTIV installer (`setup_vNXUN_2_05_A1.sh`).  
+> The CLI tools shown below are used after installation for testing and training workflows.
 ---
 
 ## Command Line Options
@@ -50,7 +53,7 @@ python3 aidaptest_run.py --t 1
 
 ```bash
 docker run --gpus all -it --ipc=host --privileged=true --ulimit memlock=-1 \
-  -v /data:/data aiDAPTIV_vNXUN_2_04_A1
+  -v /data:/data aiDAPTIV_vNXUN_2_05_A1
 ```
 
 ### Training Settings
@@ -60,7 +63,7 @@ These options are typically set in the `project.ini` or YAML files and passed au
 - `num_gpus` → Number of GPUs to use  
 - `model_name_or_path` → Path to pretrained model  
 - `nvme_path` → Path to Pascari AI-Series cache memory device (e.g., `/mnt/nvme0`)  
-- `seq_len` → Sequence length for training (e.g., `2048`)  
+- `seq_len` → Sequence length for training (default: 2048)  
 - `start_bs` / `end_bs` → Batch size range for testing  
 - `training_hour` → Expected training time  
 - `triton` → Enable Triton inference server (`True`/`False`)  

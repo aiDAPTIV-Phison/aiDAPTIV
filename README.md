@@ -11,6 +11,8 @@
 </div>
 
 **This is the official GitHub repository for Phison Pascari's aiDAPTIV platform.**  
+> **Middleware version:** vNXUN_2_04_A1  
+> **Documentation alignment:** aiDAPTIVLink 2.0 NXUN204.A1 User Manual
 aiDAPTIV is a storage-accelerated AI infrastructure platform designed to remove GPU memory bottlenecks during large language model (LLM) training and inference by using high-performance NVMe SSDs as a fast extension to GPU VRAM.
 
 This enables developers, researchers, and enterprises to run larger models, longer context windows, and more demanding workloads on existing on-prem hardware without relying on cloud infrastructure.

@@ -29,7 +29,7 @@ Use the following baseline environment for the smoothest installation experience
 Before installing aiDAPTIV, make sure you have:
 
 - A supported NVIDIA GPU
-- Pascari AI-Series cache SSD(s), such as:
+- aiDAPTIV cache SSD(s), such as:
   - **AI100E (PCIe 4.0)**
   - **AI200E (PCIe 5.0)**
 - Sufficient DRAM and PCIe lane capacity for your target model size
@@ -531,7 +531,7 @@ At the end of a successful installation, you should have:
 - CUDA 13.0 configured
 - cuDNN 9.17 installed
 - Hugging Face authentication ready
-- Pascari AI-Series cache mounted at `/mnt/nvme0`
+- aiDAPTIV cache mounted at `/mnt/nvme0`
 - aiDAPTIV middleware installed as **vNXUN205_A1**
 - Optional Docker image loaded as **aidaptiv:vNXUN_2_05_A1**
 

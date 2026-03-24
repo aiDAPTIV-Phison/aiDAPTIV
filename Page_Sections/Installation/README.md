@@ -1,191 +1,235 @@
-# aiDAPTIV Middleware Installation Guide (AI100E Systems Only)
+# aiDAPTIV Installation Guide (NXUN205.A1)
 
-This guide describes how to install and configure the **aiDAPTIV Middleware
-stack** for **model fine-tuning and training workflows** on **AI100E-based systems**.
+This guide aligns with the **aiDAPTIVLink 2.0 NXUN205.A1** installation manual and specification.
 
-It is intended for workloads that require:
-- GPU memory extension via aiDAPTIV middleware
-- Dataset staging and checkpointing
-- Fine-tuning or training large models
-
-This guide is **not intended for inference-only workflows**.
+> **Scope:** aiDAPTIVLink 2 is primarily intended for **post-training and fine-tuning** workflows.  
+> Inference acceleration features such as KV-cache offload belong to **aiDAPTIVLink 3**.
 
 ---
 
-## 🔍 Middleware vs Inference Clarification
+## 1. Recommended Environment
 
-aiDAPTIV supports **multiple AI workflows**, which are installed and used
-independently depending on the hardware platform and workload type.
+Use the following baseline environment for the smoothest installation experience:
 
-### aiDAPTIV Middleware (This Guide)
-- **Fine-tuning and training workflows**
-- **Required for AI100E-based systems**
-- Includes aiDAPTIV middleware, drivers, and training runtime
-- Supports LLM fine-tuning, checkpointing, and memory offload
+| Component | Recommended Version |
+|---|---|
+| OS | Ubuntu 24.04.3 Desktop |
+| Kernel | 6.14 |
+| NVIDIA Driver | 580 |
+| CUDA | 13.0 |
+| Python | 3.12 |
 
-### llama.cpp Inference
-- **Inference-only workloads**
-- **Designed for NVIDIA DGX Spark systems**
-- Installed separately
-- Does **NOT** require aiDAPTIV Middleware
-
-## Installation
-
-Before installing aiDAPTIVmiddleware, prepare your system with the necessary GPU drivers, CUDA toolkit, libraries, and disk setup.
-
-### ✅ Environment Requirements
-
-| Category       | Detail                                       |
-|----------------|----------------------------------------------|
-| OS             | Ubuntu 24.04.3 Desktop (kernel 6.14 +)       |
-| GPU Driver     | NVIDIA Driver 550                            |
-| Python Version | Python 3.12                                  |
-| CUDA Toolkit   | CUDA 12.4.1 (40-Series) / 12.8.0 (50-Series) |
-| cuDNN Library  | cuDNN 9.4.0 (40-Series) / 9.8.0 (50-Series)  |
+> A fresh Ubuntu install is strongly recommended to avoid dependency conflicts.  
+> If you are not using a fresh system, prefer the Docker-based workflow.
 
 ---
 
-### 1️⃣ Install NVIDIA GPU Driver
+## 2. Before You Start
 
+Before installing aiDAPTIV, make sure you have:
 
-#### For 40-Series GPUs (Ada Lovelace)
+- A supported NVIDIA GPU
+- Pascari AI-Series cache SSD(s), such as:
+  - **AI100E (PCIe 4.0)**
+  - **AI200E (PCIe 5.0)**
+- Sufficient DRAM and PCIe lane capacity for your target model size
+- Internet access for package installation and model downloads
+- A Hugging Face account for gated model access (if applicable)
+
+---
+
+## 3. Install NVIDIA Driver
+
+Install the validated NVIDIA 580 driver stack:
 
 ```bash
-sudo apt install nvidia-utils-550 nvidia-driver-550
+sudo apt update
+sudo apt install nvidia-utils-580
+sudo apt install nvidia-driver-580-open
 sudo reboot
 ```
 
-#### For 50 Series GPUs (Blackwell)
-
-```bash
-sudo apt install nvidia-utils-570 nvidia-driver-570-open
-sudo reboot
-```
-
-After reboot, confirm installation:
+### Validate Driver Installation
 
 ```bash
 nvidia-smi
 ```
 
-> You should see your GPU listed along with the installed driver and CUDA version.
+Expected result:
+- Driver is installed successfully
+- GPU is visible
+- CUDA version is shown in the output
 
 ---
 
-### 2️⃣ Install CUDA Toolkit
+## 4. Install CUDA 13.0
 
-#### For 40-Series GPUs (Ada Lovelace)
-
-```bash
-wget https://developer.download.nvidia.com/compute/cuda/12.4.1/local_installers/cuda_12.4.1_550.54.15_linux.run
-sudo sh cuda_12.4.1_550.54.15_linux.run
-```
-
-#### For 50-Series GPUs (Blackwell)
+Download and install the CUDA 13.0 runfile:
 
 ```bash
-wget https://developer.download.nvidia.com/compute/cuda/12.8.0/local_installers/cuda_12.8.0_570.86.10_linux.run
-sudo sh cuda_12.8.0_570.86.10_linux.run
+wget https://developer.download.nvidia.com/compute/cuda/13.0.0/local_installers/cuda_13.0.0_580.65.06_linux.run
+sudo sh cuda_13.0.0_580.65.06_linux.run
 ```
 
+### Important During Installation
 
-> ❗ During installation:
-> - Do **not** install the driver again.
-> - Uncheck `[X] Driver` and continue with `Install`.
+When the CUDA installer opens:
+
+- Continue
+- Accept the license
+- **Uncheck Driver**
+- Leave CUDA selected
+- Proceed with installation
+
+In other words:
+
+```text
+[X] Driver  -->  [ ] Driver
+```
+
+### Export CUDA Environment Variables
+
+```bash
+export CUDA_HOME=/usr/local/cuda-13.0
+export PATH=$CUDA_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+```
+
+To make this persistent, add those lines to your shell profile (for example `~/.bashrc`).
+
+### Validate CUDA
+
+```bash
+nvcc -V
+```
+
+Expected result:
+- CUDA version should report **13.0**
 
 ---
 
-### 3️⃣ Install cuDNN (9.4.0)
+## 5. Install cuDNN
 
-#### For 40-Series GPUs (Ada Lovelace)
-```bash
-wget https://developer.download.nvidia.com/compute/cudnn/9.4.0/local_installers/cudnn-local-repo-ubuntu2404-9.4.0_1.0-1_amd64.deb
-sudo dpkg -i cudnn-local-repo-ubuntu2404-9.4.0_1.0-1_amd64.deb
-sudo cp /var/cudnn-local-repo-ubuntu2404-9.4.0/cudnn-*-keyring.gpg /usr/share/keyrings/
-sudo apt-get update
-sudo apt-get -y install cudnn-cuda-12
-```
+Install **cuDNN 9.17** compatible with CUDA 13.
 
-#### For 50-Series GPUs (Blackwell)
-```bash
-wget https://developer.download.nvidia.com/compute/cudnn/9.8.0/local_installers/cudnn-local-repo-ubuntu2404-9.8.0_1.0-1_amd64.deb
-sudo dpkg -i cudnn-local-repo-ubuntu2404-9.8.0_1.0-1_amd64.deb
-sudo cp /var/cudnn-local-repo-ubuntu2404-9.8.0/cudnn-*-keyring.gpg /usr/share/keyrings/
-sudo apt-get update
-sudo apt-get -y install cudnn-cuda-12
-```
+Use the NVIDIA cuDNN archive/download page and install the version that matches:
+- Ubuntu
+- CUDA 13
+- cuDNN 9.17
 
-### 🔍 Summary Table (optional addition)
-
-| GPU Generation | Driver | CUDA | cuDNN |
-|----------------|---------|-------|--------|
-| 40-Series (Ada) | 550 | 12.4.1 | 9.4.0 |
-| 50-Series (Blackwell) | 570-open | 12.8.0 | 9.8.0 |
-
-
-So:  
-- ✅ **40-series → driver 550, CUDA 12.4.1, cuDNN 9.4.0**  
-- ✅ **50-series → driver 570-open, CUDA 12.8.0, cuDNN 9.8.0**  
-
+> Avoid mixing older cuDNN instructions from previous releases (such as 9.4 / 9.8) with NXUN205.A1.
 
 ---
 
-### 4️⃣ Install aiDAPTIV middleware
+## 6. Prepare Optional Python Environment
 
-> ⚠️ Recommended: Use a fresh Ubuntu system.  
-> Alternatively, see [🐳 Docker Installation](#-docker-installation-alternative-setup) for isolated setup.
-
-#### Create and activate a Python virtual environment (required as of v2.0.4.A1):
-```bash
-sudo apt install python3-venv -y
-python3 -m venv ~/aidaptiv_env
-source ~/aidaptiv_env/bin/activate
-```
-
-You’ll see (aidaptiv_env) at the start of your terminal prompt.
-This ensures aiDAPTIV middleware installs dependencies in an isolated Python environment and avoids version conflicts.
-
-Now run the setup script:
-
+Using a Python virtual environment is recommended for dependency isolation:
 
 ```bash
-wget https://phisonbucket.s3.ap-northeast-1.amazonaws.com/setup_vNXUN_2_04_A1.sh
-bash setup_vNXUN_2_04_A1.sh
+python3 -m venv aidaptiv_env
+source aidaptiv_env/bin/activate
 ```
 
-- Select `1. Deploy aiDAPTIV`
-- If prompted, you can optionally choose to update firmware (`FW Update`)
-- On success, an `aiDAPTIV2/` folder will appear on your Desktop
+You should now see something like this at the beginning of your prompt:
+
+```text
+(aidaptiv_env)
+```
 
 ---
 
-### 5️⃣ Set Up LVM Drives
+## 7. Set Up Hugging Face Access
 
-> If you only have **one SSD**, skip to the _Single SSD Setup_ section below.
+Some models require Hugging Face authentication before download.
 
-**Install LVM Tools**
+### Install the Hub CLI
+
+```bash
+pip install --upgrade huggingface_hub
+```
+
+### Log In
+
+```bash
+huggingface-cli login
+```
+
+When prompted:
+- Paste your Hugging Face token
+- Approve credential storage if needed
+
+> You can generate a token from your Hugging Face account settings.  
+> A **Read** token is sufficient for downloading models.
+
+### Optional Git Credential Storage
+
+```bash
+git config --global credential.helper store
+```
+
+---
+
+## 8. Download a Model (Example: Llama-3.1-8B-Instruct)
+
+If your model is gated, request access first on Hugging Face.
+
+Example download flow:
+
+```bash
+mkdir -p /home/$USER/Desktop/llm
+cd /home/$USER/Desktop/llm
+mkdir Llama-3.1-8B-Instruct
+
+huggingface-cli download --token HF_TOKEN --resume-download meta-llama/Llama-3.1-8B-Instruct \
+  --local-dir-use-symlinks False --local-dir Llama-3.1-8B-Instruct
+```
+
+Replace:
+- `HF_TOKEN` with your actual token
+- `meta-llama/Llama-3.1-8B-Instruct` with your desired model repo if needed
+- `Llama-3.1-8B-Instruct` with your destination folder name if desired
+
+After download, verify the files exist:
+
+```bash
+ls /home/$USER/Desktop/llm/Llama-3.1-8B-Instruct
+```
+
+---
+
+## 9. Set Up aiDAPTIV Cache Storage (LVM)
+
+If you have **two SSDs**, the recommended setup is a striped LVM volume.
+
+### 9.1 Install LVM Tools
 
 ```bash
 sudo apt update
 sudo apt install lvm2 xfsprogs
 ```
 
-**Check SSDs**
+### 9.2 Identify Your SSDs
 
 ```bash
 lshw -class disk -class storage | grep -E 'ai100|logical name|version: EIFZ'
 lsblk | grep nvme
 ```
 
-**(Optional) Clean Existing Partitions**
+Confirm the correct device names before continuing.  
+Examples commonly look like:
 
-> If the SSDs were previously used, clear existing partition data to avoid conflicts.
+- `/dev/nvme1n1`
+- `/dev/nvme2n1`
+
+### 9.3 Optional: Clear Old Filesystem Signatures
+
+Only do this if the drives were used previously and you want to repurpose them.
 
 ```bash
 sudo wipefs -a /dev/nvme1n1 /dev/nvme2n1
 ```
 
-**Create Volume Group and Logical Volume**
+### 9.4 Create LVM Volume
 
 ```bash
 sudo pvcreate /dev/nvme1n1 /dev/nvme2n1
@@ -193,7 +237,7 @@ sudo vgcreate ai /dev/nvme1n1 /dev/nvme2n1
 sudo lvcreate --type striped -i 2 -I 128k -l 100%FREE -n ai ai
 ```
 
-**Format and Mount**
+### 9.5 Format and Mount
 
 ```bash
 sudo mkfs.xfs -f -s size=4k -m crc=0 /dev/ai/ai
@@ -202,24 +246,32 @@ sudo mount /dev/ai/ai /mnt/nvme0
 sudo chown -R $USER:$USER /mnt/nvme0
 ```
 
-**(Optional) Make Persistent**
+### 9.6 Optional: Make Mount Persistent
 
 ```bash
 echo '/dev/ai/ai /mnt/nvme0 xfs defaults,nofail 0 0' | sudo tee -a /etc/fstab
-# To remove:
+```
+
+To remove it later:
+
+```bash
 sudo sed -i '/\/dev\/ai\/ai/d' /etc/fstab
 ```
 
-**Verify**
+### 9.7 Validate Mount
 
 ```bash
 lsblk
 df -h | grep /mnt/nvme0
 ```
 
+You should see `/mnt/nvme0` mounted and available.
+
 ---
 
-### 🔁 Single SSD Setup (If only one SSD)
+## 10. Single SSD Setup (Alternative)
+
+If you only have **one SSD**, use this simpler setup instead:
 
 ```bash
 sudo mkfs -t ext4 /dev/nvme1n1
@@ -228,62 +280,87 @@ sudo mount /dev/nvme1n1 /mnt/nvme0
 sudo chown -R $USER:$USER /mnt/nvme0
 ```
 
-> ⚠️ Using a single SSD is supported but may reduce I/O performance compared to striped (dual-SSD) LVM setups.
+> Single SSD is supported, but dual-SSD striped LVM is preferred for better I/O throughput.
 
 ---
 
-### 🧹 (Optional) Dissolve or Recreate LVM
+## 11. Optional: Remove or Rebuild LVM Later
 
-If you need to remove or rebuild your LVM group later:
+If you need to dissolve the LVM configuration:
 
 ```bash
 sudo umount /mnt/nvme0
-sudo lvremove /dev/ai/ai
-sudo vgremove ai
-sudo pvremove /dev/nvme1n1 /dev/nvme2n1
+sudo lvremove -y /dev/ai/ai
+sudo vgremove -y ai
+sudo pvremove -y /dev/nvme1n1 /dev/nvme2n1
 ```
 
 ---
 
-### 💡 Optional – Enable Swap File on aiDAPTIVCache
+## 12. Native Middleware Installation
 
-Add a swap file to extend memory for large batch sizes:
+Use the official installer script:
 
 ```bash
-sudo dd if=/dev/zero of=/mnt/nvme0/swapfile bs=1M count=256k
-sudo chmod 600 /mnt/nvme0/swapfile
-sudo mkswap /mnt/nvme0/swapfile
-sudo swapon /mnt/nvme0/swapfile
-echo '/mnt/nvme0/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+wget https://phisonbucket.s3.ap-northeast-1.amazonaws.com/setup_vNXUN_2_05_A1.sh
+bash setup_vNXUN_2_05_A1.sh
 ```
 
----
+### Installer Flow
 
-### 🔧 Firmware Update (Optional)
+When prompted:
 
-To run firmware update later:
+1. Select:
+
+```text
+1. Deploy aiDAPTIV
+```
+
+2. If firmware mismatch is detected, you may be asked whether to update SSD firmware:
+   - `Y` = run firmware update
+   - `N` = continue installation
+
+3. You may also be asked whether to download the tarball from cloud:
+   - `Y` = download automatically
+   - `N` = manually provide the local path to `vNXUN_2_05_A1.tar`
+
+### Example Prompts
+
+```text
+Select an action:
+1. Deploy aiDAPTIV
+2. Exit
+```
+
+```text
+If the FW version does not match, do you need to update the SSD FW? (Y/N)
+```
+
+```text
+Would you like to download vNXUN_2_05_A1.tar from cloud? (Y/N)
+```
+
+### Successful Installation Indicators
+
+After successful install:
+
+- A success message appears
+- The `aiDAPTIV2` folder is created
+- `phisonai2 -v` reports the expected version
+
+Validate:
 
 ```bash
-bash setup_vNXUN_2_04_A1.sh
+phisonai2 -v
 ```
 
-- Select option `3. FW Update`
-- Add the NVMe device(s) to update
-- Confirm and proceed with update
+Expected result:
 
----
-### 🐳 Docker Installation (Alternative Setup)
+```text
+version: vNXUN205_A1
+```
 
-> If you prefer to install aiDAPTIV middleware in an isolated container environment, you can use the Docker method instead of native installation.
-
----
-
-### ✅ Install Docker and NVIDIA Container Toolkit
-
-- [Install Docker Engine (Ubuntu)](https://docs.docker.com/engine/install/ubuntu/)
-- [Install NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
-
-After installation, restart Docker:
+### Restart Docker Service After Install
 
 ```bash
 sudo systemctl restart docker
@@ -291,161 +368,175 @@ sudo systemctl restart docker
 
 ---
 
-### 📦 Download and Load Docker Image
+## 13. Docker-Based Workflow
+
+If you prefer Docker or are avoiding native dependency conflicts, use the container image.
+
+### 13.1 Load the Docker Image
 
 ```bash
-wget https://phisonbucket.s3.ap-northeast-1.amazonaws.com/aiDAPTIV_vNXUN_2_04_A1.tar.gz
-docker load < aiDAPTIV_vNXUN_2_04_A1.tar.gz
+wget https://phisonbucket.s3.ap-northeast-1.amazonaws.com/aiDAPTIV_vNXUN_2_05_A1.tar.gz
+docker load < aiDAPTIV_vNXUN_2_05_A1.tar.gz
 ```
 
-Confirm the image was loaded:
+### 13.2 Verify Image
 
 ```bash
-docker image list
+docker images | grep aidaptiv
 ```
 
-> You should see: `aidaptiv:vNXUN_2_04_A1`
+Expected output should include:
 
----
-
-### 📁 Locate Config and Command Files
-
-After loading the Docker image, a folder will be created at:
-
-```bash
-/home/root/aiDAPTIV2/commands
+```text
+aidaptiv:vNXUN_2_05_A1
 ```
 
-This folder includes the following structure:
-
-```
-commands/
-├── env_config/
-│   └── env_config.yaml
-├── exp_config/
-│   └── exp_config.yaml
-└── example.sh
-```
-
-> You can modify these files to match your training project parameters.
-
----
-
-### 🚀 Run the Docker Container
+### 13.3 Run the Container
 
 ```bash
 docker run --gpus all -it --ipc=host --privileged=true --ulimit memlock=-1 \
---ulimit stack=67108864 -v </path/to/model>:/app -v </path/to/LVM>:/mnt \
--v /dev/mapper:/dev/mapper -v /var/lock:/var/lock aidaptiv:vNXUN_2_04_A1
+  -v /data:/data aidaptiv:vNXUN_2_05_A1
 ```
 
-Replace:
-
-- `</path/to/model>` with the path to your model directory  
-- `</path/to/LVM>` with your mounted LVM volume (e.g., `/mnt/nvme0`)
-
-> ✅ You do **not** need to run this if you're using the native install method above.
+> Make sure NVIDIA Container Toolkit is installed if GPU access in Docker is required.
 
 ---
 
+## 14. Firmware Update (If Needed Later)
+
+To rerun the installer and perform firmware update when needed:
+
+```bash
+bash setup_vNXUN_2_05_A1.sh
+```
+
+Then choose the firmware update path from the interactive menu when prompted.
+
 ---
 
-## 🧪 Installation Test
+## 15. Validation Checklist
 
-After completing the installation (native or Docker), you can run the following checks to confirm the setup was successful.
+Run these checks after setup.
 
----
-
-### ✅ System-Level Checks
-
-Verify that your GPU, CUDA, and cuDNN are all correctly installed:
+### Check Driver
 
 ```bash
 nvidia-smi
-nvcc --version
 ```
 
-Expected:
-- `nvidia-smi` should show your GPU and driver version.
-- `nvcc` should show CUDA 12.4 or 12.8 depending on your GPU generation.
-
-Check cuDNN version:
+### Check CUDA
 
 ```bash
-cat /usr/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+nvcc -V
 ```
 
 Expected:
-- Output includes `#define CUDNN_MAJOR 9`
+- CUDA version = **13.0**
 
----
-
-### ✅ aiDAPTIV Directory Check
-
-```bash
-ls ~/Desktop/aiDAPTIV2/
-```
-
-Expected:
-- You should see files and folders such as `commands/`, `env_config/`, etc.
+### Check Middleware Version
 
 ```bash
 phisonai2 -v
 ```
-Expected output: aiDAPTIV middleware vNXUN_2_04_A1
-
----
-
-### ✅ Docker Image Check (if using Docker)
-
-```bash
-docker image list | grep aidaptiv
-```
 
 Expected:
-- `aidaptiv:vNXUN_2_04_A1` appears in the list
+- `vNXUN205_A1`
 
----
-
-### ✅ Node.js/NPM (Optional UI or CLI Tool)
-
-If your setup includes a Node.js-based management tool (for launching, logging, or interacting with aiDAPTIV), run:
-
-```bash
-node -v
-npm -v
-```
-
-Then inside the aiDAPTIV UI folder (if applicable):
-
-```bash
-npm install
-npm run test
-```
-
-Expected:
-- No errors from `npm install`
-- Test output showing success or passed checks
-
-> If `npm run test` doesn't exist, consider using `npm run lint`, `npm run dev`, or `npx vitest` depending on your tooling.
-
----
-
-### ✅ LVM Mount Check
-
-Make sure the LVM volume is mounted:
+### Check SSD Mount
 
 ```bash
 df -h | grep /mnt/nvme0
 ```
 
-Expected:
-- A mounted device entry for `/mnt/nvme0`
+### Check Docker Image (if using Docker)
+
+```bash
+docker images | grep aidaptiv
+```
 
 ---
 
-✅ If all tests pass, aiDAPTIV middleware is ready for training or inference!
+## 16. Optional: Create Swap on aiDAPTIV Cache
+
+A swap file can be useful for very large workloads or experiments.
+
+Example flow:
+
+```bash
+sudo fallocate -l 64G /mnt/nvme0/swapfile
+sudo chmod 600 /mnt/nvme0/swapfile
+sudo mkswap /mnt/nvme0/swapfile
+sudo swapon /mnt/nvme0/swapfile
+swapon --show
+```
+
+To make it persistent:
+
+```bash
+echo '/mnt/nvme0/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+```
 
 ---
-_Last updated for aiDAPTIV Middleware v2.0.4 (NXUN_2_04_A1) — Ubuntu 24.04.3 LTS, Kernel 6.14+._
 
+## 17. Quick Troubleshooting Notes
+
+### CUDA or cuDNN mismatch
+If CUDA, torch, and cuDNN versions do not match, some packages may fail to import or build correctly.
+
+Useful checks:
+
+```bash
+pip list | grep -E 'torch|nvidia|cuda'
+nvcc -V
+nvidia-smi
+```
+
+### `ninja` build errors
+If you see missing `ninja` issues:
+
+```bash
+pip install ninja
+```
+
+### `sentencepiece` missing
+If tokenizer conversion fails:
+
+```bash
+pip install --user sentencepiece
+```
+
+### `protobuf` issues
+If a model complains about protobuf:
+
+```bash
+pip install --upgrade protobuf
+```
+
+### LVM mount not visible
+Recheck:
+
+```bash
+lsblk
+df -h
+sudo mount -a
+```
+
+---
+
+## 18. Summary
+
+At the end of a successful installation, you should have:
+
+- Ubuntu 24.04.3 with NVIDIA 580 installed
+- CUDA 13.0 configured
+- cuDNN 9.17 installed
+- Hugging Face authentication ready
+- Pascari AI-Series cache mounted at `/mnt/nvme0`
+- aiDAPTIV middleware installed as **vNXUN205_A1**
+- Optional Docker image loaded as **aidaptiv:vNXUN_2_05_A1**
+
+You are then ready to move on to:
+- dataset configuration
+- training config setup
+- benchmark toolkit usage
+- fine-tuning workflows
